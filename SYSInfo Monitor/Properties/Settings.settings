@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SYSInfo_Monitor.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Memory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Memory</Value>
+    </Setting>
+    <Setting Name="CPU" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Processor</Value>
+    </Setting>
+    <Setting Name="Processor" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Processor</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
