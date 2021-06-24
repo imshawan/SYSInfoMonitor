@@ -15,7 +15,7 @@ namespace sysInfoClass
         static readonly string[] suffixes =
         { "Bytes", "KB", "MB", "GB", "TB", "PB" };
 
-        public static string FormatSize(Int64 bytes)
+        public string FormatSize(Int64 bytes)
         {
             int counter = 0;
             decimal number = (decimal)bytes;
@@ -26,6 +26,7 @@ namespace sysInfoClass
             }
             return string.Format("{0:n1}{1}", number, suffixes[counter]);
         }
+
         public List<KeyValuePair<string, string>> GetProcessorInfo()
         {
             ManagementObjectSearcher myProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
@@ -69,6 +70,7 @@ namespace sysInfoClass
                 GraphicsInfo.Add(new KeyValuePair<string, string>("VideoProcessor", $"{obj["VideoProcessor"]}"));
                 GraphicsInfo.Add(new KeyValuePair<string, string>("VideoArchitecture", $"{obj["VideoArchitecture"]}"));
                 GraphicsInfo.Add(new KeyValuePair<string, string>("VideoMemoryType", $"{obj["VideoMemoryType"]}"));
+                GraphicsInfo.Add(new KeyValuePair<string, string>(" ", " "));
             }
             return GraphicsInfo;
         }
@@ -88,7 +90,6 @@ namespace sysInfoClass
                     StorageInfo.Add(new KeyValuePair<string, string>("VolumeLabel", $"{d.VolumeLabel}"));
                     StorageInfo.Add(new KeyValuePair<string, string>("DriveFormat", $"{d.DriveFormat}"));
                     StorageInfo.Add(new KeyValuePair<string, string>("AvailableFreeSpace", $"{FormatSize(Convert.ToInt64(d.AvailableFreeSpace))}"));
-                    StorageInfo.Add(new KeyValuePair<string, string>("TotalFreeSpace", $"{FormatSize(Convert.ToInt64(d.TotalFreeSpace))}"));
                     StorageInfo.Add(new KeyValuePair<string, string>("TotalSize", $"{FormatSize(Convert.ToInt64(d.TotalSize))}"));
                     StorageInfo.Add(new KeyValuePair<string, string>("RootDirectory", $"{d.RootDirectory}"));
                     StorageInfo.Add(new KeyValuePair<string, string>(" ", " "));
