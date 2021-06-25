@@ -1,0 +1,5 @@
+C:\Users\shawan049\Desktop\SYSInfo Monitor\SYSInfoMonitorLib\bin\Debug\SYSInfoMonitorLib.dll
+C:\Users\shawan049\Desktop\SYSInfo Monitor\SYSInfoMonitorLib\bin\Debug\SYSInfoMonitorLib.pdb
+C:\Users\shawan049\Desktop\SYSInfo Monitor\SYSInfoMonitorLib\obj\Debug\SYSInfoMonitorLib.csproj.CoreCompileInputs.cache
+C:\Users\shawan049\Desktop\SYSInfo Monitor\SYSInfoMonitorLib\obj\Debug\SYSInfoMonitorLib.dll
+C:\Users\shawan049\Desktop\SYSInfo Monitor\SYSInfoMonitorLib\obj\Debug\SYSInfoMonitorLib.pdb

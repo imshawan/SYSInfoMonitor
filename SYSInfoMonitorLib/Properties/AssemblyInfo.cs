@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("sysInfoClass")]
-[assembly: AssemblyDescription("Class Library for SYSInfo Monitor")]
+[assembly: AssemblyTitle("SYSInfoMonitorLib")]
+[assembly: AssemblyDescription("Main Assembly for SYSInfo Monitor")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Shawan Mandal")]
-[assembly: AssemblyProduct("sysInfoClass")]
+[assembly: AssemblyProduct("SYSInfoMonitorLib")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
-[assembly: AssemblyTrademark("Shawan Mandal")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e3388a8d-a116-4245-b3bc-03f4403accb9")]
+[assembly: Guid("65d2fdfa-8ff7-45d9-a4e7-95097277a064")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.1.0")]
-[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyVersion("1.2.9.0")]
+[assembly: AssemblyFileVersion("1.2.9.0")]

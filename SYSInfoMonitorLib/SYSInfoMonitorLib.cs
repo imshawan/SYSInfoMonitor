@@ -1,13 +1,13 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Management;
+using System.IO;
 using System.Net.NetworkInformation;
 
-namespace sysInfoClass
+namespace SYSInfoMonitorLib
 {
     public class GetSYSInfo
     {
@@ -178,7 +178,29 @@ namespace sysInfoClass
             }
             return AudioDevices;
         }
+        public string[] Battery(string args)
+        {
+            string[] array = new string[3];
+            SelectQuery myQuery = new SelectQuery("SELECT * from Win32_Battery");
 
+            ManagementObjectSearcher mySearcher = new ManagementObjectSearcher(myQuery);
+
+
+            foreach (ManagementBaseObject obj in mySearcher.Get())
+
+            {
+                if (args == "battery")
+                {
+                    array[0] = obj["EstimatedChargeRemaining"].ToString();
+                    array[1] = obj["Status"].ToString();
+                }
+                else if (args == "systemname")
+                {
+                    array[0] = obj["SystemName"].ToString();
+                }
+            }
+            return array;
+        }
         public List<KeyValuePair<string, string>> GetPrinters()
         {
             var Printers = new List<KeyValuePair<string, string>>();

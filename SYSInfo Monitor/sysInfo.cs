@@ -11,13 +11,15 @@ using System.Windows.Interop;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime;
+using SYSInfoMonitorLib;
 
 namespace SYSInfo_Monitor
 {
     public partial class sysInfo : Form
     {
-        sysInfoClass.GetSYSInfo SysInfo = new sysInfoClass.GetSYSInfo();
-         
+        SYSInfoMonitorLib.GetSYSInfo SysInfo = new SYSInfoMonitorLib.GetSYSInfo();
+        DateTime now = DateTime.Now;
+
         private const int WM_NCHITTEST = 0x84;
         private const int HTCLIENT = 0x1;
         private const int HTCAPTION = 0x2;
@@ -36,23 +38,31 @@ namespace SYSInfo_Monitor
         ///
         /// Handling the window messages
         ///
-        protected override void WndProc(ref Message message)
-        {
-            base.WndProc(ref message);
 
-            if (message.Msg == WM_NCHITTEST && (int)message.Result == HTCLIENT)
-                message.Result = (IntPtr)HTCAPTION;
-        }
 
         public sysInfo()
         {
             InitializeComponent();
+
         }
 
         private void sysInfo_Load(object sender, EventArgs e)
         {
-            metroComboBox1.SelectedIndex = 0;
+            // Get System name
+            label5.Text = SysInfo.Battery("systemname")[0];
             timer1.Start();
+            const string year = "yyyy";
+            const string month = "MMMM";
+            const string day = "dddd";
+            const string dayInNumber = "dd";
+
+            string strYear = now.ToString(year);
+            string strMonth = now.ToString(month);
+            string strDay = now.ToString(day);
+            string strDayInINT = now.ToString(dayInNumber);
+            string date = strDayInINT + "th " + strMonth + ", " + strYear;
+            bunifuLabel1.Text = strDay;
+            bunifuLabel2.Text = date;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -81,6 +91,7 @@ namespace SYSInfo_Monitor
         }
         private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*
             var selected = metroComboBox1.SelectedItem;
 
             ProcessorInfo = SysInfo.GetProcessorInfo();
@@ -94,7 +105,7 @@ namespace SYSInfo_Monitor
             if (selected.ToString() == "Processor (CPU)")
             {
                 CurrentSelectedData = ProcessorInfo;
-                bunifuDataGridView1.Rows.Clear();
+                //bunifuDataGridView1.Rows.Clear();
                 foreach (var val in ProcessorInfo)
                 {
                     bunifuDataGridView1.Rows.Add(val.Key, val.Value);
@@ -154,7 +165,7 @@ namespace SYSInfo_Monitor
                     bunifuDataGridView1.Rows.Add(val.Key, val.Value);
                 }
             }
-
+            */
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -193,14 +204,16 @@ namespace SYSInfo_Monitor
             }
 
             var RamVal = 100 - ((freeMemory / totalMemory) * 100);
-            bunifuCircleProgressbar1.Value = (int)RamVal;
+           // bunifuCircleProgressbar1.Value = (int)RamVal;
 
-            label9.Text = ((int)totalMemory).ToString() + " MB";
-            label10.Text = ((int)totalMemory - (int)freeMemory).ToString() + " MB";
-            label11.Text = ((int)freeMemory).ToString() + " MB";
+          //  label9.Text = ((int)totalMemory).ToString() + " MB";
+            //label10.Text = ((int)totalMemory - (int)freeMemory).ToString() + " MB";
+            //label11.Text = ((int)freeMemory).ToString() + " MB";
 
             usedSpace = 100 - (totalFreeSpace / totalSpace) * 100;
-            bunifuCircleProgressbar2.Value = (int)usedSpace;
+            //bunifuCircleProgressbar2.Value = (int)usedSpace;
+
+            
         }
         private void SaveToFile(string args)
         {
@@ -275,7 +288,31 @@ namespace SYSInfo_Monitor
 
         private void X_Click(object sender, EventArgs e)
         {
-            this.Close();
+        }
+
+        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var array = SysInfo.Battery("battery");
+        }
+
+        private void bunifuLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuImageButton4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
