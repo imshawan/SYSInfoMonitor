@@ -16,11 +16,8 @@ namespace SYSInfo_Monitor.UIForms
         {
             InitializeComponent();
         }
-
-        private void Battery_Load(object sender, EventArgs e)
+        private void UpdateBatteryElements()
         {
-            this.CenterToParent();
-
             PowerStatus pwr = SystemInformation.PowerStatus;
 
             String strBatteryChargingStatus = pwr.BatteryChargeStatus.ToString();
@@ -75,7 +72,7 @@ namespace SYSInfo_Monitor.UIForms
                 panel1.Size = new System.Drawing.Size(111, 70);
 
             }
-            else if (strBatterylife >=50 && strBatterylife > 25)
+            else if (strBatterylife >= 50 && strBatterylife > 25)
             {
                 panel1.Size = new System.Drawing.Size(95, 70);
 
@@ -90,7 +87,11 @@ namespace SYSInfo_Monitor.UIForms
                 panel1.Size = new System.Drawing.Size(4, 70);
 
             }
-
+        }
+        private void Battery_Load(object sender, EventArgs e)
+        {
+            this.CenterToParent();
+            timer1.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -100,6 +101,11 @@ namespace SYSInfo_Monitor.UIForms
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateBatteryElements();
         }
     }
 }

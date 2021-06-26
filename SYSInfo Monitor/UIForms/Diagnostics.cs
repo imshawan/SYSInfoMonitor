@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,7 @@ namespace SYSInfo_Monitor.UIForms
 {
     public partial class Diagnostics : Form
     {
+        bool update = false;
         public Diagnostics()
         {
             InitializeComponent();
@@ -24,11 +26,13 @@ namespace SYSInfo_Monitor.UIForms
         {
             this.StartPosition = FormStartPosition.CenterParent;
             timer1.Start();
-            UpdateDiskAndCPUInfo();
+            //UpdateDiskAndCPUInfo();
 
 
         }
         PerformanceCounter cpu = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total", true);
+        ManagementObjectSearcher myProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
+
         private void UpdateUiElements()
         {
             //label1.Text = ((int)Math.Round(cpu.NextValue(), 2)).ToString() + " %";
@@ -59,6 +63,11 @@ namespace SYSInfo_Monitor.UIForms
             label9.Text = ((int)freeMemory).ToString() + " Megabytes";
             
             //label1.Text = ((int)Math.Round(cpu.NextValue(), 2)).ToString() + " %";
+            if (!update)
+            {
+                UpdateDiskAndCPUInfo();
+                update = true;
+            }
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -67,7 +76,6 @@ namespace SYSInfo_Monitor.UIForms
         private void UpdateDiskAndCPUInfo()
         {
             //CPU Elements
-            ManagementObjectSearcher myProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
             foreach (ManagementObject obj in myProcessorObject.Get())
             {
                 label12.Text = float.Parse(obj["CurrentClockSpeed"].ToString()) / 1000 + " GHz";

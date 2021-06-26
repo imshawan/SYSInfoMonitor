@@ -987,6 +987,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton5.WaitOnLoad = false;
             this.bunifuImageButton5.Zoom = 10;
             this.bunifuImageButton5.ZoomSpeed = 10;
+            this.bunifuImageButton5.Click += new System.EventHandler(this.bunifuImageButton5_Click);
             // 
             // bunifuButton1
             // 

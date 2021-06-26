@@ -232,35 +232,35 @@ namespace SYSInfo_Monitor.UIForms
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(303, 342);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 17);
+            this.label7.Size = new System.Drawing.Size(90, 19);
             this.label7.TabIndex = 2;
-            this.label7.Text = "0";
+            this.label7.Text = "Calculating...";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(303, 363);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(15, 17);
+            this.label8.Size = new System.Drawing.Size(90, 19);
             this.label8.TabIndex = 2;
-            this.label8.Text = "0";
+            this.label8.Text = "Calculating...";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
             this.label9.Location = new System.Drawing.Point(303, 384);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 17);
+            this.label9.Size = new System.Drawing.Size(90, 19);
             this.label9.TabIndex = 2;
-            this.label9.Text = "0";
+            this.label9.Text = "Calculating...";
             // 
             // label10
             // 
@@ -320,13 +320,13 @@ namespace SYSInfo_Monitor.UIForms
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(502, 342);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(15, 17);
+            this.label18.Size = new System.Drawing.Size(90, 19);
             this.label18.TabIndex = 2;
-            this.label18.Text = "0";
+            this.label18.Text = "Calculating...";
             // 
             // label19
             // 
@@ -342,24 +342,24 @@ namespace SYSInfo_Monitor.UIForms
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(502, 363);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(15, 17);
+            this.label20.Size = new System.Drawing.Size(90, 19);
             this.label20.TabIndex = 2;
-            this.label20.Text = "0";
+            this.label20.Text = "Calculating...";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(502, 384);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(15, 17);
+            this.label21.Size = new System.Drawing.Size(90, 19);
             this.label21.TabIndex = 2;
-            this.label21.Text = "0";
+            this.label21.Text = "Calculating...";
             // 
             // label22
             // 
@@ -378,7 +378,7 @@ namespace SYSInfo_Monitor.UIForms
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(42, 342);
+            this.label23.Location = new System.Drawing.Point(43, 342);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(95, 17);
             this.label23.TabIndex = 2;
@@ -398,24 +398,24 @@ namespace SYSInfo_Monitor.UIForms
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Location = new System.Drawing.Point(144, 363);
+            this.label32.Location = new System.Drawing.Point(139, 363);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(15, 17);
+            this.label32.Size = new System.Drawing.Size(90, 19);
             this.label32.TabIndex = 2;
-            this.label32.Text = "0";
+            this.label32.Text = "Calculating...";
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.Color.White;
-            this.label34.Location = new System.Drawing.Point(144, 384);
+            this.label34.Location = new System.Drawing.Point(139, 384);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(15, 17);
+            this.label34.Size = new System.Drawing.Size(90, 19);
             this.label34.TabIndex = 2;
-            this.label34.Text = "0";
+            this.label34.Text = "Calculating...";
             // 
             // label26
             // 
@@ -431,13 +431,13 @@ namespace SYSInfo_Monitor.UIForms
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(144, 342);
+            this.label12.Location = new System.Drawing.Point(139, 342);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(15, 17);
+            this.label12.Size = new System.Drawing.Size(90, 19);
             this.label12.TabIndex = 2;
-            this.label12.Text = "0";
+            this.label12.Text = "Calculating...";
             // 
             // Diagnostics
             // 
@@ -481,7 +481,6 @@ namespace SYSInfo_Monitor.UIForms
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Diagnostics";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Diagnostics_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();

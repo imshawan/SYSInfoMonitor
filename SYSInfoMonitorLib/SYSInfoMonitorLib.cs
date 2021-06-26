@@ -27,6 +27,17 @@ namespace SYSInfoMonitorLib
             return string.Format("{0:n1}{1}", number, suffixes[counter]);
         }
 
+        public string StringBuilderFunc(List<KeyValuePair<string, string>> data)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var values in data)
+            {
+                sb.AppendFormat("{0}: {1}", values.Key, values.Value);
+                sb.AppendLine();
+            }
+            return sb.ToString();
+        }
+
         public List<KeyValuePair<string, string>> GetProcessorInfo()
         {
             ManagementObjectSearcher myProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");

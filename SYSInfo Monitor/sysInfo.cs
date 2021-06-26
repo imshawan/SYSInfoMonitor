@@ -27,7 +27,6 @@ namespace SYSInfo_Monitor
         public string ClipboardData = "";
         private List<KeyValuePair<string, string>> CurrentSelectedData = new List<KeyValuePair<string, string>>();
 
-        private List<KeyValuePair<string, string>> ProcessorInfo = new List<KeyValuePair<string, string>>();
         private List<KeyValuePair<string, string>> GraphicsInfo = new List<KeyValuePair<string, string>>();
         private List<KeyValuePair<string, string>> StorageInfo = new List<KeyValuePair<string, string>>();
         private List<KeyValuePair<string, string>> OSInfo = new List<KeyValuePair<string, string>>();
@@ -295,6 +294,13 @@ namespace SYSInfo_Monitor
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             //NETWORK INFO
+        }
+
+        private void bunifuImageButton5_Click(object sender, EventArgs e)
+        {
+            // Processor Information
+            SYSInfo_Monitor.UIForms.Processor ProcessorIn = new SYSInfo_Monitor.UIForms.Processor();
+            ProcessorIn.ShowDialog(this);
         }
     }
 }
