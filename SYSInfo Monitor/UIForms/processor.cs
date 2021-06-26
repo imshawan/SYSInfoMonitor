@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SYSInfo_Monitor.UIForms
 {
-    public partial class processor : Form
+    public partial class Processor : Form
     {
-        public processor()
+        public Processor()
         {
             InitializeComponent();
         }

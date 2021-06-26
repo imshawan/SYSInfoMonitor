@@ -1,7 +1,7 @@
 ﻿
 namespace SYSInfo_Monitor.UIForms
 {
-    partial class processor
+    partial class Processor
     {
         /// <summary>
         /// Required designer variable.

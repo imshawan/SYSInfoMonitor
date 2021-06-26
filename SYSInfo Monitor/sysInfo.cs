@@ -49,8 +49,9 @@ namespace SYSInfo_Monitor
         private void sysInfo_Load(object sender, EventArgs e)
         {
             // Get System name
-            label5.Text = SysInfo.Battery("systemname")[0];
+            label5.Text = Environment.MachineName;
             timer1.Start();
+
             const string year = "yyyy";
             const string month = "MMMM";
             const string day = "dddd";
@@ -172,47 +173,10 @@ namespace SYSInfo_Monitor
         {
 
         }
+        PerformanceCounter cpu = new PerformanceCounter("Processor Information", "% Processor Utility", "_Total", true);
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            float totalMemory = 0;
-            float freeMemory = 0;
-
-            double totalFreeSpace = 0;
-            double totalSpace = 0;
-            double usedSpace = 0;
-
-            ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
-            ManagementObjectCollection results = searcher.Get();
-
-            foreach (ManagementObject result in results)
-            {
-                totalMemory = (float.Parse(result["TotalVisibleMemorySize"].ToString()) / 1024);
-                freeMemory = (float.Parse(result["FreePhysicalMemory"].ToString()) / 1024);
-            }
-
-            DriveInfo[] allDrives = DriveInfo.GetDrives();
-
-            foreach (DriveInfo d in allDrives)
-            {
-                if (d.IsReady == true)
-                {
-                    totalFreeSpace += d.AvailableFreeSpace;
-                    totalSpace += d.TotalSize;
-                }
-            }
-
-            var RamVal = 100 - ((freeMemory / totalMemory) * 100);
-           // bunifuCircleProgressbar1.Value = (int)RamVal;
-
-          //  label9.Text = ((int)totalMemory).ToString() + " MB";
-            //label10.Text = ((int)totalMemory - (int)freeMemory).ToString() + " MB";
-            //label11.Text = ((int)freeMemory).ToString() + " MB";
-
-            usedSpace = 100 - (totalFreeSpace / totalSpace) * 100;
-            //bunifuCircleProgressbar2.Value = (int)usedSpace;
-
             
         }
         private void SaveToFile(string args)
@@ -292,17 +256,24 @@ namespace SYSInfo_Monitor
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)
         {
-
+            //AIRPLANE
         }
 
         private void bunifuButton5_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void test()
         {
-            var array = SysInfo.Battery("battery");
+            SelectQuery myQuery = new SelectQuery("SELECT * from Win32_Processor");
+
+            ManagementObjectSearcher mySearcher = new ManagementObjectSearcher(myQuery);
+
+
+            foreach (ManagementBaseObject obj in mySearcher.Get())
+            {
+                MessageBox.Show("Result: "+ Convert.ToInt16(obj["LoadPercentage"]));
+            }
         }
 
         private void bunifuLabel2_Click(object sender, EventArgs e)
@@ -312,7 +283,18 @@ namespace SYSInfo_Monitor
 
         private void bunifuImageButton4_Click(object sender, EventArgs e)
         {
+            SYSInfo_Monitor.UIForms.Diagnostics Diagnostic = new SYSInfo_Monitor.UIForms.Diagnostics();
+            Diagnostic.ShowDialog(this);
+        }
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.Battery Battery = new SYSInfo_Monitor.UIForms.Battery();
+            Battery.ShowDialog(this);
+        }
 
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            //NETWORK INFO
         }
     }
 }
