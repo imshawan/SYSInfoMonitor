@@ -8,38 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SYSInfoMonitorLib;
 
 namespace SYSInfo_Monitor.UIForms
 {
-    public partial class Processor : Form
+    public partial class Graphics : Form
     {
-        SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
-        private List<KeyValuePair<string, string>> ProcessorInfo = new List<KeyValuePair<string, string>>();
-
-        public Processor()
+        public Graphics()
         {
             InitializeComponent();
         }
-        public void GetProcessorData()
-        {
-            ProcessorInfo = GetInfo.GetProcessorInfo();
-            foreach (var val in ProcessorInfo)
-            {
-                if (val.Key.ToLower() == "name")
-                {
-                    label1.Text = val.Value;
-                }
-                else
-                {
-                    bunifuDataGridView1.Rows.Add(" " + val.Key + ":", val.Value);
-                }
-            }
-        }
-        private void processor_Load(object sender, EventArgs e)
-        {
-            GetProcessorData();
-        }
+
+        SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
+        private List<KeyValuePair<string, string>> GraphicsInfo = new List<KeyValuePair<string, string>>();
+        bool findFirst = false;
 
         private void SaveToFile(string args)
         {
@@ -76,14 +57,14 @@ namespace SYSInfo_Monitor.UIForms
             {
                 if (args == "csv")
                 {
-                    foreach (var vals in ProcessorInfo)
+                    foreach (var vals in GraphicsInfo)
                     {
                         File.AppendAllText(filePath, $"{vals.Key}, {vals.Value}\n");
                     }
                 }
                 else if (args == "txt")
                 {
-                    foreach (var vals in ProcessorInfo)
+                    foreach (var vals in GraphicsInfo)
                     {
                         File.AppendAllText(filePath, $"{vals.Key}: {vals.Value}\n");
                     }
@@ -92,24 +73,27 @@ namespace SYSInfo_Monitor.UIForms
                 MessageBox.Show("File Saved Successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-        private void copyInformationToolStripMenuItem_Click(object sender, EventArgs e)
+
+        public void GetGraphicsData()
         {
-            Clipboard.SetText(GetInfo.StringBuilderFunc(ProcessorInfo));
+            GraphicsInfo = GetInfo.GetGraphicsInfo();
+            foreach (var val in GraphicsInfo)
+            {
+                if (val.Key.ToLower() == "name" && findFirst == false)
+                {
+                    label1.Text = "Preferred: " + val.Value;
+                    findFirst = true;
+                }
+                else
+                {
+                    bunifuDataGridView1.Rows.Add(" " + val.Key + ":", val.Value);
+                }
+            }
         }
 
-        private void saveToTextFiletxtToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Graphics_Load(object sender, EventArgs e)
         {
-            SaveToFile("txt");
-        }
-
-        private void saveDataToCSVToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveToFile("csv");
-        }
-
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            GetGraphicsData();
         }
     }
 }

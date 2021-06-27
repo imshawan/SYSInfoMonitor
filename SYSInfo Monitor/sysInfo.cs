@@ -302,6 +302,17 @@ namespace SYSInfo_Monitor
             SYSInfo_Monitor.UIForms.Processor ProcessorIn = new SYSInfo_Monitor.UIForms.Processor();
             ProcessorIn.ShowDialog(this);
         }
+
+        private void bunifuGradientPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bunifuImageButton6_Click(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.Graphics Graphic = new SYSInfo_Monitor.UIForms.Graphics();
+            Graphic.ShowDialog(this);
+        }
     }
 }
 

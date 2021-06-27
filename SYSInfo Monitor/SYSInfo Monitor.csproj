@@ -119,6 +119,12 @@
     <Compile Include="UIForms\Diagnostics.Designer.cs">
       <DependentUpon>Diagnostics.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIForms\Graphics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\Graphics.Designer.cs">
+      <DependentUpon>Graphics.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIForms\Processor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIForms\Diagnostics.resx">
       <DependentUpon>Diagnostics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\Graphics.resx">
+      <DependentUpon>Graphics.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIForms\Processor.resx">
       <DependentUpon>Processor.cs</DependentUpon>
