@@ -35,10 +35,14 @@ namespace SYSInfo_Monitor.UIForms
             {
                 label4.Text = strBatteryChargingStatus;
             }
+
+            if (strBatteryChargingStatus.ToLower() == "charging")
+            {
+                pictureBox2.Visible = true;
+            }
  
             if (strBatteryChargingStatus.ToLower().Contains("charging") || strBatteryChargingStatus.ToLower().Contains("critical") || strBatteryChargingStatus.ToLower().Contains("nosystembattery"))
             {
-                pictureBox2.Visible = true;
                 label7.Text = "AC Outlet";
             }
             else
@@ -72,6 +76,7 @@ namespace SYSInfo_Monitor.UIForms
             if (strBatteryChargingStatus.ToLower().Contains("nosystembattery"))
             {
                 panel1.Visible = false;
+                pictureBox2.Visible = false;
                 label6.Text = "...?";
                 label9.Text = "No Internal Battery";
             }
@@ -146,6 +151,11 @@ namespace SYSInfo_Monitor.UIForms
         }
 
         private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
