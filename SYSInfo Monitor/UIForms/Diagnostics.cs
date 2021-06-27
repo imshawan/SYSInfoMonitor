@@ -109,6 +109,7 @@ namespace SYSInfo_Monitor.UIForms
         }
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             this.Close();
         }
     }

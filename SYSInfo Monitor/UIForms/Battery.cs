@@ -24,22 +24,27 @@ namespace SYSInfo_Monitor.UIForms
             if (strBatteryChargingStatus == "0" || strBatteryChargingStatus == null)
             {
                 label4.Text = "Battery Discharging";
+                pictureBox2.Visible = false;
             }
             else if (strBatteryChargingStatus.ToLower() == "high" || strBatteryChargingStatus.ToLower().Contains("critical"))
             {
                 label4.Text = strBatteryChargingStatus + ", Not Charging";
+                pictureBox2.Visible = false;
             }
             else
             {
                 label4.Text = strBatteryChargingStatus;
             }
-            if (strBatteryChargingStatus.ToLower().Contains("charging") || strBatteryChargingStatus.ToLower().Contains("critical"))
+ 
+            if (strBatteryChargingStatus.ToLower().Contains("charging") || strBatteryChargingStatus.ToLower().Contains("critical") || strBatteryChargingStatus.ToLower().Contains("nosystembattery"))
             {
+                pictureBox2.Visible = true;
                 label7.Text = "AC Outlet";
             }
             else
             {
                 label7.Text = "On Battery";
+                pictureBox2.Visible = false;
             }
 
             var secs = pwr.BatteryLifeRemaining;
@@ -62,30 +67,61 @@ namespace SYSInfo_Monitor.UIForms
             strBatterylife = strBatterylife * 100;
             label6.Text = strBatterylife + "%";
 
-            if (strBatterylife >= 75 && strBatterylife < 100)
-            {
-                panel1.Size = new System.Drawing.Size(152, 70);
+            var height = panel1.Size.Height;
 
+            if (strBatteryChargingStatus.ToLower().Contains("nosystembattery"))
+            {
+                panel1.Visible = false;
+                label6.Text = "...?";
+                label9.Text = "No Internal Battery";
             }
-            else if (strBatterylife >= 75 && strBatterylife < 65)
+            else
             {
-                panel1.Size = new System.Drawing.Size(111, 70);
+                if (strBatterylife >= 95 && strBatterylife <= 100)
+                {
+                    panel1.Size = new System.Drawing.Size(155, height);
+                    panel1.BackColor = Color.YellowGreen;
+                    label9.Text = "Healthy";
+                }
 
-            }
-            else if (strBatterylife >= 50 && strBatterylife > 25)
-            {
-                panel1.Size = new System.Drawing.Size(95, 70);
+                if (strBatterylife >= 75 && strBatterylife < 95)
+                {
+                    panel1.Size = new System.Drawing.Size(132, height);
+                    panel1.BackColor = Color.YellowGreen;
+                    label9.Text = "Healthy";
+                }
+                if (strBatterylife >= 65 && strBatterylife < 75)
+                {
+                    panel1.Size = new System.Drawing.Size(111, height);
+                    panel1.BackColor = Color.YellowGreen;
+                    label9.Text = "Healthy";
+                }
+                if (strBatterylife >= 50 && strBatterylife < 65)
+                {
+                    panel1.Size = new System.Drawing.Size(80, height);
+                    panel1.BackColor = Color.YellowGreen;
+                    label9.Text = "Healthy";
+                }
+                if (strBatterylife >= 25 && strBatterylife < 50)
+                {
+                    panel1.Size = new System.Drawing.Size(65, height);
+                    label9.Text = "Good";
+                    panel1.BackColor = Color.YellowGreen;
+                }
+                if (strBatterylife >= 15 && strBatterylife < 25)
+                {
+                    panel1.Size = new System.Drawing.Size(30, height);
+                    panel1.BackColor = Color.Yellow;
+                    label9.Text = "Low Battery";
 
-            }
-            else if (strBatterylife >= 25 && strBatterylife < 15)
-            {
-                panel1.Size = new System.Drawing.Size(80, 70);
+                }
+                if (strBatterylife >= 1 && strBatterylife < 15)
+                {
+                    panel1.Size = new System.Drawing.Size(10, height);
+                    panel1.BackColor = Color.Red;
+                    label9.Text = "Low Battery, Plug in Charger";
 
-            }
-            else if (strBatterylife >= 15 && strBatterylife > 0)
-            {
-                panel1.Size = new System.Drawing.Size(4, 70);
-
+                }
             }
         }
         private void Battery_Load(object sender, EventArgs e)
@@ -100,12 +136,18 @@ namespace SYSInfo_Monitor.UIForms
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
+            timer1.Stop();
             this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             UpdateBatteryElements();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
