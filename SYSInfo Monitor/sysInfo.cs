@@ -313,6 +313,18 @@ namespace SYSInfo_Monitor
             SYSInfo_Monitor.UIForms.Graphics Graphic = new SYSInfo_Monitor.UIForms.Graphics();
             Graphic.ShowDialog(this);
         }
+
+        private void bunifuImageButton7_Click(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.Storage Storage = new SYSInfo_Monitor.UIForms.Storage();
+            Storage.ShowDialog(this);
+        }
+
+        private void bunifuImageButton9_Click(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.OS OS = new SYSInfo_Monitor.UIForms.OS();
+            OS.ShowDialog(this);
+        }
     }
 }
 

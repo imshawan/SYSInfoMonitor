@@ -11,16 +11,15 @@ using System.Windows.Forms;
 
 namespace SYSInfo_Monitor.UIForms
 {
-    public partial class Graphics : Form
+    public partial class OS : Form
     {
-        public Graphics()
+        public OS()
         {
             InitializeComponent();
         }
 
         SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
-        private List<KeyValuePair<string, string>> GraphicsInfo = new List<KeyValuePair<string, string>>();
-        bool findFirst = false;
+        private List<KeyValuePair<string, string>> OSInfo = new List<KeyValuePair<string, string>>();
 
         private void SaveToFile(string args)
         {
@@ -57,14 +56,14 @@ namespace SYSInfo_Monitor.UIForms
             {
                 if (args == "csv")
                 {
-                    foreach (var vals in GraphicsInfo)
+                    foreach (var vals in OSInfo)
                     {
                         File.AppendAllText(filePath, $"{vals.Key}, {vals.Value}\n");
                     }
                 }
                 else if (args == "txt")
                 {
-                    foreach (var vals in GraphicsInfo)
+                    foreach (var vals in OSInfo)
                     {
                         File.AppendAllText(filePath, $"{vals.Key}: {vals.Value}\n");
                     }
@@ -74,15 +73,14 @@ namespace SYSInfo_Monitor.UIForms
             }
         }
 
-        public void GetGraphicsData()
+        public void GetOSData()
         {
-            GraphicsInfo = GetInfo.GetGraphicsInfo();
-            foreach (var val in GraphicsInfo)
+            OSInfo = GetInfo.GetOSInfo();
+            foreach (var val in OSInfo)
             {
-                if (val.Key.ToLower() == "name" && findFirst == false)
+                if (val.Key.ToLower() == "name")
                 {
-                    label1.Text = "Preferred: " + val.Value;
-                    findFirst = true;
+                    label1.Text = val.Value;
                 }
                 else
                 {
@@ -91,14 +89,14 @@ namespace SYSInfo_Monitor.UIForms
             }
         }
 
-        private void Graphics_Load(object sender, EventArgs e)
+        private void OS_Load(object sender, EventArgs e)
         {
-            GetGraphicsData();
+            GetOSData();
         }
 
         private void copyInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(GetInfo.StringBuilderFunc(GraphicsInfo));
+            Clipboard.SetText(GetInfo.StringBuilderFunc(OSInfo));
         }
 
         private void saveToTextFiletxtToolStripMenuItem_Click(object sender, EventArgs e)

@@ -272,7 +272,6 @@ namespace SYSInfo_Monitor.UIForms
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Battery";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Battery_Load);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).EndInit();

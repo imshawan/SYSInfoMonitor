@@ -119,6 +119,12 @@
     <Compile Include="UIForms\Diagnostics.Designer.cs">
       <DependentUpon>Diagnostics.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIForms\OS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\OS.Designer.cs">
+      <DependentUpon>OS.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIForms\Graphics.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     </Compile>
     <Compile Include="UIForms\Processor.Designer.cs">
       <DependentUpon>Processor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\Storage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\Storage.Designer.cs">
+      <DependentUpon>Storage.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="sysInfo.resx">
       <DependentUpon>sysInfo.cs</DependentUpon>
@@ -153,8 +165,14 @@
     <EmbeddedResource Include="UIForms\Graphics.resx">
       <DependentUpon>Graphics.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\OS.resx">
+      <DependentUpon>OS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\Processor.resx">
       <DependentUpon>Processor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\Storage.resx">
+      <DependentUpon>Storage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>

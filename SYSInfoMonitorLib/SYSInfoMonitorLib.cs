@@ -97,6 +97,11 @@ namespace SYSInfoMonitorLib
 
                 if (d.IsReady == true)
                 {
+                    StorageInfo.Add(new KeyValuePair<string, string>("DriveName", $"{d.Name}"));
+                    if (d.Name.ToLower().Contains("c"))
+                    {
+                        StorageInfo.Add(new KeyValuePair<string, string>("sysdrive", $"{FormatSize(Convert.ToInt64(d.AvailableFreeSpace))} of {FormatSize(Convert.ToInt64(d.TotalSize))} Available"));
+                    }
                     StorageInfo.Add(new KeyValuePair<string, string>("DriveInfo", $"{d.DriveType}"));
                     StorageInfo.Add(new KeyValuePair<string, string>("VolumeLabel", $"{d.VolumeLabel}"));
                     StorageInfo.Add(new KeyValuePair<string, string>("DriveFormat", $"{d.DriveFormat}"));
@@ -125,7 +130,7 @@ namespace SYSInfoMonitorLib
                 OSInfo.Add(new KeyValuePair<string, string>("SystemDirectory", $"{obj["SystemDirectory"]}"));
                 OSInfo.Add(new KeyValuePair<string, string>("CountryCode", $"{obj["CountryCode"]}"));
                 OSInfo.Add(new KeyValuePair<string, string>("CurrentTimeZone", $"{obj["CurrentTimeZone"]}"));
-                OSInfo.Add(new KeyValuePair<string, string>("EncryptionLevel", $"{obj["EncryptionLevel"]}"));
+                OSInfo.Add(new KeyValuePair<string, string>("EncryptionLevel", $"{obj["EncryptionLevel"]}-bit Encryption"));
             }
             return OSInfo;
         }

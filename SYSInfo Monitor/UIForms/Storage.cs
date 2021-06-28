@@ -11,16 +11,14 @@ using System.Windows.Forms;
 
 namespace SYSInfo_Monitor.UIForms
 {
-    public partial class Graphics : Form
+    public partial class Storage : Form
     {
-        public Graphics()
+        public Storage()
         {
             InitializeComponent();
         }
-
         SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
-        private List<KeyValuePair<string, string>> GraphicsInfo = new List<KeyValuePair<string, string>>();
-        bool findFirst = false;
+        private List<KeyValuePair<string, string>> StorageInfo = new List<KeyValuePair<string, string>>();
 
         private void SaveToFile(string args)
         {
@@ -57,14 +55,14 @@ namespace SYSInfo_Monitor.UIForms
             {
                 if (args == "csv")
                 {
-                    foreach (var vals in GraphicsInfo)
+                    foreach (var vals in StorageInfo)
                     {
                         File.AppendAllText(filePath, $"{vals.Key}, {vals.Value}\n");
                     }
                 }
                 else if (args == "txt")
                 {
-                    foreach (var vals in GraphicsInfo)
+                    foreach (var vals in StorageInfo)
                     {
                         File.AppendAllText(filePath, $"{vals.Key}: {vals.Value}\n");
                     }
@@ -74,31 +72,37 @@ namespace SYSInfo_Monitor.UIForms
             }
         }
 
-        public void GetGraphicsData()
+        public void GetStorageData()
         {
-            GraphicsInfo = GetInfo.GetGraphicsInfo();
-            foreach (var val in GraphicsInfo)
+            string sysdrive = " ";
+            string usage = " ";
+            StorageInfo = GetInfo.GetStorageInfo();
+            foreach (var val in StorageInfo)
             {
-                if (val.Key.ToLower() == "name" && findFirst == false)
+                if (val.Key.ToLower() == "drivename" && val.Value.ToLower().Contains("c"))
                 {
-                    label1.Text = "Preferred: " + val.Value;
-                    findFirst = true;
+                    sysdrive = "System Drive> " + val.Value + " - ";
+                }
+                else if (val.Key == "sysdrive")
+                {
+                    usage = val.Value;
                 }
                 else
                 {
                     bunifuDataGridView1.Rows.Add(" " + val.Key + ":", val.Value);
                 }
             }
+            label1.Text = sysdrive + usage;
         }
 
-        private void Graphics_Load(object sender, EventArgs e)
+        private void Storage_Load(object sender, EventArgs e)
         {
-            GetGraphicsData();
+            GetStorageData();
         }
 
         private void copyInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(GetInfo.StringBuilderFunc(GraphicsInfo));
+            Clipboard.SetText(GetInfo.StringBuilderFunc(StorageInfo));
         }
 
         private void saveToTextFiletxtToolStripMenuItem_Click(object sender, EventArgs e)
