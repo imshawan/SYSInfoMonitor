@@ -265,6 +265,12 @@ namespace SYSInfo_Monitor
             SYSInfo_Monitor.UIForms.Audio Audio = new SYSInfo_Monitor.UIForms.Audio();
             Audio.ShowDialog(this);
         }
+
+        private void bunifuImageButton13_Click(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.About About = new SYSInfo_Monitor.UIForms.About();
+            About.ShowDialog(this);
+        }
     }
 }
 
