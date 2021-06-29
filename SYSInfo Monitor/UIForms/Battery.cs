@@ -39,7 +39,7 @@ namespace SYSInfo_Monitor.UIForms
                 label4.Text = strBatteryChargingStatus;
             }
 
-            if (strBatteryChargingStatus.ToLower().Contains("high") && strBatteryChargingStatus.ToLower().Contains("charging"))
+            if (strBatteryChargingStatus.ToLower().Contains("charging"))
             {
                 pictureBox2.Visible = true;
             }
