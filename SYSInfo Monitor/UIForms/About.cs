@@ -16,5 +16,10 @@ namespace SYSInfo_Monitor.UIForms
         {
             InitializeComponent();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
