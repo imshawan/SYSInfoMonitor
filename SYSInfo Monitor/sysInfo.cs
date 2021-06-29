@@ -20,10 +20,6 @@ namespace SYSInfo_Monitor
         SYSInfoMonitorLib.GetSYSInfo SysInfo = new SYSInfoMonitorLib.GetSYSInfo();
         DateTime now = DateTime.Now;
 
-        private const int WM_NCHITTEST = 0x84;
-        private const int HTCLIENT = 0x1;
-        private const int HTCAPTION = 0x2;
-
         public string ClipboardData = "";
         private List<KeyValuePair<string, string>> CurrentSelectedData = new List<KeyValuePair<string, string>>();
 
@@ -45,12 +41,12 @@ namespace SYSInfo_Monitor
 
         }
 
-        private void sysInfo_Load(object sender, EventArgs e)
+        private void LoadInitialItems()
         {
             // Get System name
             label5.Text = Environment.MachineName;
-            timer1.Start();
 
+            // Get DATE, TIME and DAY
             const string year = "yyyy";
             const string month = "MMMM";
             const string day = "dddd";
@@ -63,6 +59,13 @@ namespace SYSInfo_Monitor
             string date = strDayInINT + "th " + strMonth + ", " + strYear;
             bunifuLabel1.Text = strDay;
             bunifuLabel2.Text = date;
+        }
+
+        private void sysInfo_Load(object sender, EventArgs e)
+        {
+            
+            timer1.Start();
+            LoadInitialItems();
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -88,84 +91,6 @@ namespace SYSInfo_Monitor
                 sb.AppendLine();
             }
             return sb.ToString();
-        }
-        private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            /*
-            var selected = metroComboBox1.SelectedItem;
-
-            ProcessorInfo = SysInfo.GetProcessorInfo();
-            GraphicsInfo = SysInfo.GetGraphicsInfo();
-            StorageInfo = SysInfo.GetStorageInfo();
-            OSInfo = SysInfo.GetOSInfo();
-            NetworkInfo = SysInfo.GetNetworkInformation();
-            AudioDevices = SysInfo.GetAudioDevices();
-            Printers = SysInfo.GetPrinters();
-
-            if (selected.ToString() == "Processor (CPU)")
-            {
-                CurrentSelectedData = ProcessorInfo;
-                //bunifuDataGridView1.Rows.Clear();
-                foreach (var val in ProcessorInfo)
-                {
-                    bunifuDataGridView1.Rows.Add(val.Key, val.Value);
-                }
-            }
-            else if (selected.ToString() == "Graphics Card (GPU)")
-            {
-                CurrentSelectedData = GraphicsInfo;
-                bunifuDataGridView1.Rows.Clear();
-                foreach (var val in GraphicsInfo)
-                {
-                    bunifuDataGridView1.Rows.Add(val.Key, val.Value);
-                }
-            }
-            else if (selected.ToString() == "Storage Devices")
-            {
-                CurrentSelectedData = StorageInfo;
-                bunifuDataGridView1.Rows.Clear();
-                foreach (var val in StorageInfo)
-                {
-                    bunifuDataGridView1.Rows.Add(val.Key, val.Value);
-                }
-            }
-            else if (selected.ToString() == "Operating System")
-            {
-                CurrentSelectedData = OSInfo;
-                bunifuDataGridView1.Rows.Clear();
-                foreach (var val in OSInfo)
-                {
-                    bunifuDataGridView1.Rows.Add(val.Key, val.Value);
-                }
-            }
-            else if (selected.ToString() == "Network Interface Card (NIC)")
-            {
-                CurrentSelectedData = NetworkInfo;
-                bunifuDataGridView1.Rows.Clear();
-                foreach (var val in NetworkInfo)
-                {
-                    bunifuDataGridView1.Rows.Add(val.Key, val.Value);
-                }
-            }
-            else if (selected.ToString() == "Audio Devices")
-            {
-                CurrentSelectedData = AudioDevices;
-                bunifuDataGridView1.Rows.Clear();
-                foreach (var val in AudioDevices)
-                {
-                    bunifuDataGridView1.Rows.Add(val.Key, val.Value);
-                }
-            }
-            else if (selected.ToString() == "Printers")
-            {
-                CurrentSelectedData = Printers;
-                bunifuDataGridView1.Rows.Clear();
-                foreach (var val in Printers)
-                {
-                    bunifuDataGridView1.Rows.Add(val.Key, val.Value);
-                }
-            }
-            */
         }
 
         private void button2_Click_1(object sender, EventArgs e)
@@ -255,7 +180,8 @@ namespace SYSInfo_Monitor
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)
         {
-            //AIRPLANE
+            //GITHUB PAGE
+            Process.Start("https://github.com/imshawan/SYSInfoMonitor");
         }
 
         private void bunifuButton5_Click(object sender, EventArgs e)
