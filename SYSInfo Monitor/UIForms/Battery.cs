@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using SYSInfoMonitorLib;
 
 namespace SYSInfo_Monitor.UIForms
 {
@@ -16,6 +18,7 @@ namespace SYSInfo_Monitor.UIForms
         {
             InitializeComponent();
         }
+        SYSInfoMonitorLib.WinAPI WinAPI = new SYSInfoMonitorLib.WinAPI();
         private void UpdateBatteryElements()
         {
             PowerStatus pwr = SystemInformation.PowerStatus;
@@ -36,11 +39,14 @@ namespace SYSInfo_Monitor.UIForms
                 label4.Text = strBatteryChargingStatus;
             }
 
-            if (strBatteryChargingStatus.ToLower() == "charging")
+            if (strBatteryChargingStatus.ToLower().Contains("high") && strBatteryChargingStatus.ToLower().Contains("charging"))
             {
                 pictureBox2.Visible = true;
             }
- 
+            if (strBatteryChargingStatus.ToLower().Contains("nosystembattery"))
+            {
+                progressBar1.Visible = false;
+            }
             if (strBatteryChargingStatus.ToLower().Contains("charging") || strBatteryChargingStatus.ToLower().Contains("critical") || strBatteryChargingStatus.ToLower().Contains("nosystembattery"))
             {
                 label7.Text = "AC Outlet";
@@ -71,66 +77,52 @@ namespace SYSInfo_Monitor.UIForms
             strBatterylife = strBatterylife * 100;
             label6.Text = strBatterylife + "%";
 
-            var height = panel1.Size.Height;
-
             if (strBatteryChargingStatus.ToLower().Contains("nosystembattery"))
             {
-                panel1.Visible = false;
                 pictureBox2.Visible = false;
                 label6.Text = "...?";
                 label9.Text = "No Internal Battery";
             }
             else
             {
+                progressBar1.Value = (int)strBatterylife;
+                progressBar1.SetState(1);
                 if (strBatterylife >= 95 && strBatterylife <= 100)
                 {
-                    panel1.Size = new System.Drawing.Size(155, height);
-                    panel1.BackColor = Color.YellowGreen;
                     label9.Text = "Healthy";
                 }
 
                 if (strBatterylife >= 75 && strBatterylife < 95)
                 {
-                    panel1.Size = new System.Drawing.Size(132, height);
-                    panel1.BackColor = Color.YellowGreen;
                     label9.Text = "Healthy";
                 }
                 if (strBatterylife >= 65 && strBatterylife < 75)
                 {
-                    panel1.Size = new System.Drawing.Size(111, height);
-                    panel1.BackColor = Color.YellowGreen;
                     label9.Text = "Healthy";
                 }
                 if (strBatterylife >= 50 && strBatterylife < 65)
                 {
-                    panel1.Size = new System.Drawing.Size(80, height);
-                    panel1.BackColor = Color.YellowGreen;
                     label9.Text = "Healthy";
                 }
                 if (strBatterylife >= 25 && strBatterylife < 50)
                 {
-                    panel1.Size = new System.Drawing.Size(65, height);
                     label9.Text = "Good";
-                    panel1.BackColor = Color.YellowGreen;
                 }
                 if (strBatterylife >= 15 && strBatterylife < 25)
                 {
-                    panel1.Size = new System.Drawing.Size(30, height);
-                    panel1.BackColor = Color.Yellow;
                     label9.Text = "Low Battery";
-
+                    progressBar1.SetState(3);
                 }
                 if (strBatterylife >= 1 && strBatterylife < 15)
                 {
-                    panel1.Size = new System.Drawing.Size(10, height);
-                    panel1.BackColor = Color.Red;
+                    progressBar1.SetState(2);
                     label9.Text = "Low Battery, Plug in Charger";
-
                 }
             }
         }
         private void Battery_Load(object sender, EventArgs e)
         {
+            WinAPI.AnimateWindow(this.Handle, 150, WinAPI.CENTER);
             this.CenterToParent();
             timer1.Start();
         }
@@ -141,8 +133,7 @@ namespace SYSInfo_Monitor.UIForms
 
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
-            this.Close();
+            timer2.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -159,5 +150,34 @@ namespace SYSInfo_Monitor.UIForms
         {
 
         }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity <= 0)
+            {
+                timer1.Stop();
+                timer2.Stop();
+                this.Close();
+            }
+            else
+            {
+                this.Opacity -= 0.1;
+            }
+        }
     }
+    public static class ModifyProgressBarColor
+    {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
+        static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
+        public static void SetState(this ProgressBar pBar, int state)
+        {
+            SendMessage(pBar.Handle, 1040, (IntPtr)state, IntPtr.Zero);
+        }
+    }
+    
 }

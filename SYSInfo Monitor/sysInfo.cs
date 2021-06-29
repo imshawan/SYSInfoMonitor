@@ -294,6 +294,8 @@ namespace SYSInfo_Monitor
         private void bunifuImageButton2_Click(object sender, EventArgs e)
         {
             //NETWORK INFO
+            SYSInfo_Monitor.UIForms.Network Net = new SYSInfo_Monitor.UIForms.Network();
+            Net.ShowDialog(this);
         }
 
         private void bunifuImageButton5_Click(object sender, EventArgs e)
@@ -324,6 +326,18 @@ namespace SYSInfo_Monitor
         {
             SYSInfo_Monitor.UIForms.OS OS = new SYSInfo_Monitor.UIForms.OS();
             OS.ShowDialog(this);
+        }
+
+        private void bunifuImageButton11_Click(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.NICs Network = new SYSInfo_Monitor.UIForms.NICs();
+            Network.ShowDialog(this);
+        }
+
+        private void bunifuImageButton12_Click(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.Audio Audio = new SYSInfo_Monitor.UIForms.Audio();
+            Audio.ShowDialog(this);
         }
     }
 }

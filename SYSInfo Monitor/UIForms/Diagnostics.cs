@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SYSInfoMonitorLib;
 
 namespace SYSInfo_Monitor.UIForms
 {
@@ -22,8 +23,12 @@ namespace SYSInfo_Monitor.UIForms
             InitializeComponent();
         }
 
+        SYSInfoMonitorLib.WinAPI WinAPI = new SYSInfoMonitorLib.WinAPI();
+
         private void Diagnostics_Load(object sender, EventArgs e)
         {
+            WinAPI.AnimateWindow(this.Handle, 150, WinAPI.CENTER);
+
             this.StartPosition = FormStartPosition.CenterParent;
             timer1.Start();
             //UpdateDiskAndCPUInfo();
@@ -109,8 +114,26 @@ namespace SYSInfo_Monitor.UIForms
         }
         private void bunifuImageButton1_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
-            this.Close();
+            timer2.Start();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (this.Opacity <= 0)
+            {
+                timer1.Stop();
+                timer2.Stop();
+                this.Close();
+            }
+            else
+            {
+                this.Opacity -= 0.1;
+            }
         }
     }
 }

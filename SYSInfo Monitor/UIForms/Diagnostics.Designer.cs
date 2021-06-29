@@ -63,6 +63,7 @@ namespace SYSInfo_Monitor.UIForms
             this.bunifuCircleProgressbar3 = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.bunifuCircleProgressbar2 = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.bunifuCircleProgressbar1 = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -131,6 +132,7 @@ namespace SYSInfo_Monitor.UIForms
             this.groupBox1.Size = new System.Drawing.Size(648, 437);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label12
             // 
@@ -477,6 +479,11 @@ namespace SYSInfo_Monitor.UIForms
             this.bunifuCircleProgressbar1.TabIndex = 3;
             this.bunifuCircleProgressbar1.Value = 0;
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 30;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Diagnostics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -534,5 +541,6 @@ namespace SYSInfo_Monitor.UIForms
         private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbar3;
         private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbar2;
         private Bunifu.Framework.UI.BunifuCircleProgressbar bunifuCircleProgressbar1;
+        private System.Windows.Forms.Timer timer2;
     }
 }

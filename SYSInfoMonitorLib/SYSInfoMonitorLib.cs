@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Management;
 using System.IO;
 using System.Net.NetworkInformation;
+using System.Runtime.InteropServices;
 
 namespace SYSInfoMonitorLib
 {
@@ -214,5 +215,48 @@ namespace SYSInfoMonitorLib
             }
             return Printers;
         }
+
+        public string GetAllActiveNICs()
+        {
+            string NICs = string.Empty;
+            foreach (NetworkInterface ni in NetworkInterface.GetAllNetworkInterfaces())
+            {
+                if (ni.OperationalStatus == OperationalStatus.Up)
+                {
+                    var addr = ni.GetIPProperties().GatewayAddresses.FirstOrDefault();
+                    if (addr != null)
+                    {
+                        if (ni.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 || ni.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+                        {
+                            NICs = ni.Name + "," + ni.Description;
+                            foreach (UnicastIPAddressInformation ip in ni.GetIPProperties().UnicastAddresses)
+                            {
+                                if (ip.Address.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                                {
+                                     NICs += "," + ip.Address + "," + ip.IPv4Mask;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return NICs;
+        }
+    }
+    public class WinAPI
+    {
+        // WinAPI Windows Load Animate
+        public const int HOR_POSITIVE = 0X1;
+        public const int HOR_NEGATIVE = 0X2;
+
+        public const int VER_POSITIVE = 0X4;
+        public const int VER_NEGATIVE = 0X8;
+
+        public const int CENTER = 0X10;
+
+        public const int BLEND = 0X80000;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int AnimateWindow(IntPtr hwand, int dwTime, int dwflag);
     }
 }
