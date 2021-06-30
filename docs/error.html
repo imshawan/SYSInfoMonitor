@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Causes of Error</title>
+</head>
+<style type="text/css" media="screen">
+
+    body {
+        font: message-box;
+        color: #333333;
+        background: #f2f2f2;
+        padding: 5px;
+    }
+    h1{
+        text-align: center;
+    }
+    h3{
+        font-size:larger;
+    }     
+    .dt {
+        font-weight: bold;
+    }   
+    
+    #page  {
+        clear: both;
+        max-width: 950px;	
+        margin:10px auto;
+        background: #ffffff;
+        box-shadow: 0px 0px 5px #777;
+        -moz-box-shadow: 0px 0px 5px #777;
+        -webkit-box-shadow: 0px 0px 5px #777;
+    }
+    
+    #content {
+        clear: both;
+        min-height: 600px; 
+        min-width: 700px;
+        padding-top: 20px;	
+        padding-bottom: 20px;	
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    </style>
+<body>
+<div id="page">
+	<div id="content">
+        <h1>Some Known Errors</h1>
+        <p><h3 class="dt">1. Problems related to PerformanceCounter</h3>
+            <p>
+                An error may occur while you click the System Diagnostics button present below the <strong>System Name</strong>, along side the <strong>Battery and Network buttons</strong>. 
+                This is due to the PerformanceCounter and can occur if the PerformanceCounter is not built in your PC.
+                Therefore you need to rebuild performance counter setting from system backup store.
+            </p>
+            Here's how to do it...
+            <ul>
+            <li>Go to Start, type”cmd”.</li>
+
+            <li>Right-click on cmd.exe and choose <strong>‘Run as administrator’</strong></li>
+
+            <li>then you instead need to run <br>
+
+            <strong>C:\windows\SysWOW64> lodctr /r</li></strong>
+            <li> After which you should get </li>
+            <strong>Info: Successfully rebuilt performance counter setting from system backup store</strong> <br>
+
+            <strong>Note: This has to be done as administrator.</li></strong>
+            </ul>
+        </p>
+	</div>
+</div>
+</body>
+</html>

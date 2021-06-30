@@ -78,14 +78,7 @@ namespace SYSInfo_Monitor.UIForms
         {
             foreach (var val in Values)
             {
-                if (val.Key.ToLower() == "name")
-                {
-                    label1.Text = val.Value;
-                }
-                else
-                {
-                    bunifuDataGridView1.Rows.Add(" " + val.Key + ":", val.Value);
-                }
+                bunifuDataGridView1.Rows.Add(" " + val.Key + ":", val.Value);
             }
         }
 
@@ -114,12 +107,27 @@ namespace SYSInfo_Monitor.UIForms
             SaveToFile("csv");
         }
 
+        private void StatusUpdate()
+        {
+            string AllNETs = GetInfo.GetAllActiveNICs();
+            if (AllNETs == string.Empty)
+            {
+                label1.Text = "Network State: Disconnected";
+            }
+            else
+            {
+                string[] Nets = AllNETs.Split(',');
+                label1.Text = "Connected to Internet using " + Nets[0];
+            }
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (!status)
             {
-                NICInfo = GetInfo.GetAudioDevices();
+                NICInfo = GetInfo.GetNetworkInformation();
                 GetNICData(NICInfo);
+                StatusUpdate();
                 status = true;
             }
             timer1.Stop();
