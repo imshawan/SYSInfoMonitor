@@ -37,5 +37,15 @@ namespace SYSInfo_Monitor.UIForms
         {
             Process.Start("https://www.instagram.com/shawan_sm");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/imshawan/SYSInfoMonitor/blob/main/docs/EULA.md");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/imshawan/SYSInfoMonitor/blob/main/docs/gpl-3.0-LICENSE.md");
+        }
     }
 }
