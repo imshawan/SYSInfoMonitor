@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,21 @@ namespace SYSInfo_Monitor.UIForms
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bunifuImageButton3_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://github.com/imshawan");
+        }
+
+        private void bunifuImageButton1_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://imshawan.netlify.app/");
+        }
+
+        private void bunifuImageButton2_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.instagram.com/shawan_sm");
         }
     }
 }

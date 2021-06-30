@@ -16,15 +16,15 @@ namespace SYSInfo_Monitor.UIForms
     {
         SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
         private List<KeyValuePair<string, string>> ProcessorInfo = new List<KeyValuePair<string, string>>();
+        bool status = false;
 
         public Processor()
         {
             InitializeComponent();
         }
-        public void GetProcessorData()
+        public void GetProcessorData(List<KeyValuePair<string, string>> Values)
         {
-            ProcessorInfo = GetInfo.GetProcessorInfo();
-            foreach (var val in ProcessorInfo)
+            foreach (var val in Values)
             {
                 if (val.Key.ToLower() == "name")
                 {
@@ -38,7 +38,7 @@ namespace SYSInfo_Monitor.UIForms
         }
         private void processor_Load(object sender, EventArgs e)
         {
-            GetProcessorData();
+            timer1.Start();
         }
 
         private void SaveToFile(string args)
@@ -110,6 +110,17 @@ namespace SYSInfo_Monitor.UIForms
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!status)
+            {
+                ProcessorInfo = GetInfo.GetProcessorInfo();
+                GetProcessorData(ProcessorInfo);
+                status = true;
+            }
+            timer1.Stop();
         }
     }
 }

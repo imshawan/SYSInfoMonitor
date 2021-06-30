@@ -18,6 +18,7 @@ namespace SYSInfo_Monitor.UIForms
             InitializeComponent();
         }
 
+        bool status = false;
         SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
         private List<KeyValuePair<string, string>> GraphicsInfo = new List<KeyValuePair<string, string>>();
         bool findFirst = false;
@@ -74,10 +75,9 @@ namespace SYSInfo_Monitor.UIForms
             }
         }
 
-        public void GetGraphicsData()
+        public void GetGraphicsData(List<KeyValuePair<string, string>> Values)
         {
-            GraphicsInfo = GetInfo.GetGraphicsInfo();
-            foreach (var val in GraphicsInfo)
+            foreach (var val in Values)
             {
                 if (val.Key.ToLower() == "name" && findFirst == false)
                 {
@@ -93,7 +93,7 @@ namespace SYSInfo_Monitor.UIForms
 
         private void Graphics_Load(object sender, EventArgs e)
         {
-            GetGraphicsData();
+            timer1.Start();
         }
 
         private void copyInformationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,6 +114,20 @@ namespace SYSInfo_Monitor.UIForms
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!status)
+            {
+                GraphicsInfo = GetInfo.GetGraphicsInfo();
+                GetGraphicsData(GraphicsInfo);
+                status = true;
+            }
+            else
+            {
+                timer1.Stop();
+            }
         }
     }
 }

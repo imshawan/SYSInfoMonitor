@@ -18,6 +18,7 @@ namespace SYSInfo_Monitor.UIForms
             InitializeComponent();
         }
 
+        bool status = false;
         SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
         private List<KeyValuePair<string, string>> OSInfo = new List<KeyValuePair<string, string>>();
 
@@ -73,10 +74,9 @@ namespace SYSInfo_Monitor.UIForms
             }
         }
 
-        public void GetOSData()
+        public void GetOSData(List<KeyValuePair<string, string>> Values)
         {
-            OSInfo = GetInfo.GetOSInfo();
-            foreach (var val in OSInfo)
+            foreach (var val in Values)
             {
                 if (val.Key.ToLower() == "name")
                 {
@@ -91,7 +91,7 @@ namespace SYSInfo_Monitor.UIForms
 
         private void OS_Load(object sender, EventArgs e)
         {
-            GetOSData();
+            timer1.Start();
         }
 
         private void copyInformationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,6 +112,20 @@ namespace SYSInfo_Monitor.UIForms
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!status)
+            {
+                OSInfo = GetInfo.GetOSInfo();
+                GetOSData(OSInfo);
+                status = true;
+            }
+            else
+            {
+                timer1.Stop();
+            }
         }
     }
 }

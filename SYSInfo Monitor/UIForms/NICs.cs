@@ -18,6 +18,7 @@ namespace SYSInfo_Monitor.UIForms
             InitializeComponent();
         }
 
+        bool status = false;
         SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
         private List<KeyValuePair<string, string>> NICInfo = new List<KeyValuePair<string, string>>();
 
@@ -73,10 +74,9 @@ namespace SYSInfo_Monitor.UIForms
             }
         }
 
-        public void GetNICData()
+        public void GetNICData(List<KeyValuePair<string, string>> Values)
         {
-            NICInfo = GetInfo.GetNetworkInformation();
-            foreach (var val in NICInfo)
+            foreach (var val in Values)
             {
                 if (val.Key.ToLower() == "name")
                 {
@@ -91,7 +91,7 @@ namespace SYSInfo_Monitor.UIForms
 
         private void NICs_Load(object sender, EventArgs e)
         {
-            GetNICData();
+            timer1.Start();
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,6 +112,17 @@ namespace SYSInfo_Monitor.UIForms
         private void saveDataToCSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveToFile("csv");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!status)
+            {
+                NICInfo = GetInfo.GetAudioDevices();
+                GetNICData(NICInfo);
+                status = true;
+            }
+            timer1.Stop();
         }
     }
 }

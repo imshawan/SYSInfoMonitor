@@ -7,6 +7,7 @@ using System.Management;
 using System.IO;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices;
+using System.Globalization;
 
 namespace SYSInfoMonitorLib
 {
@@ -214,6 +215,54 @@ namespace SYSInfoMonitorLib
 
             }
             return Printers;
+        }
+
+        public List<KeyValuePair<string, string>> GetBaseBoard()
+        {
+            var BaseBoard = new List<KeyValuePair<string, string>>();
+
+            ManagementObjectSearcher myPrinterObject = new ManagementObjectSearcher("select * from Win32_BaseBoard");
+
+            foreach (ManagementObject obj in myPrinterObject.Get())
+            {
+                BaseBoard.Add(new KeyValuePair<string, string>("Name", $"{obj["Name"]}"));
+                BaseBoard.Add(new KeyValuePair<string, string>("Description", $"{obj["Description"]}"));
+                BaseBoard.Add(new KeyValuePair<string, string>("Manufacturer", $"{obj["Manufacturer"]}"));
+                BaseBoard.Add(new KeyValuePair<string, string>("Model", $"{obj["Model"]}"));
+                BaseBoard.Add(new KeyValuePair<string, string>("Removable", $"{obj["Removable"]}"));
+                BaseBoard.Add(new KeyValuePair<string, string>("SerialNumber", $"{obj["SerialNumber"]}"));
+                BaseBoard.Add(new KeyValuePair<string, string>("Status", $"{obj["Status"]}"));
+                BaseBoard.Add(new KeyValuePair<string, string>("Version", $"{obj["Version"]}"));
+
+            }
+            return BaseBoard;
+        }
+
+        public string DateTimeToString(String DateTime)
+        {
+            DateTime dt = ManagementDateTimeConverter.ToDateTime(DateTime);
+            return dt.ToString("dd-MMM-yyyy");//date format
+        }
+
+        public List<KeyValuePair<string, string>> GetBIOS()
+        {
+            var BIOS = new List<KeyValuePair<string, string>>();
+
+            ManagementObjectSearcher myPrinterObject = new ManagementObjectSearcher("select * from Win32_BIOS");
+
+            foreach (ManagementObject obj in myPrinterObject.Get())
+            {
+                BIOS.Add(new KeyValuePair<string, string>("Name", $"{obj["Name"]}"));
+                BIOS.Add(new KeyValuePair<string, string>("Manufacturer", $"{obj["Manufacturer"]}"));
+                BIOS.Add(new KeyValuePair<string, string>("ReleaseDate", $"{DateTimeToString(obj["ReleaseDate"].ToString())}"));
+                BIOS.Add(new KeyValuePair<string, string>("Description", $"{obj["Description"]}"));
+                BIOS.Add(new KeyValuePair<string, string>("SerialNumber", $"{obj["SerialNumber"]}"));
+                BIOS.Add(new KeyValuePair<string, string>("SMBIOSBIOSVersion", $"{obj["SMBIOSBIOSVersion"]}"));
+                BIOS.Add(new KeyValuePair<string, string>("Status", $"{obj["Status"]}"));
+                BIOS.Add(new KeyValuePair<string, string>("Version", $"{obj["Version"]}"));
+
+            }
+            return BIOS;
         }
 
         public string GetAllActiveNICs()

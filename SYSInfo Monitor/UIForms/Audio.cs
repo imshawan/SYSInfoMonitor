@@ -18,6 +18,7 @@ namespace SYSInfo_Monitor.UIForms
             InitializeComponent();
         }
 
+        bool status = false;
         SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
         private List<KeyValuePair<string, string>> AudioDevices = new List<KeyValuePair<string, string>>();
 
@@ -73,10 +74,9 @@ namespace SYSInfo_Monitor.UIForms
             }
         }
 
-        public void GetAudioDevicesInfo()
+        public void GetAudioDevicesInfo(List<KeyValuePair<string, string>> Values)
         {
-            AudioDevices = GetInfo.GetAudioDevices();
-            foreach (var val in AudioDevices)
+            foreach (var val in Values)
             {
                 bunifuDataGridView1.Rows.Add(" " + val.Key + ":", val.Value);
             }
@@ -104,7 +104,18 @@ namespace SYSInfo_Monitor.UIForms
 
         private void Audio_Load(object sender, EventArgs e)
         {
-            GetAudioDevicesInfo();
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (!status)
+            {
+                AudioDevices = GetInfo.GetAudioDevices();
+                GetAudioDevicesInfo(AudioDevices);
+                status = true;
+            }
+            timer1.Stop();
         }
     }
 }
