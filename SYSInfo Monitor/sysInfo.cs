@@ -84,7 +84,26 @@ namespace SYSInfo_Monitor
             string strMonth = now.ToString(month);
             string strDay = now.ToString(day);
             string strDayInINT = now.ToString(dayInNumber);
-            string date = strDayInINT + "th " + strMonth + ", " + strYear;
+            string date = "";
+            float d = float.Parse(strDayInINT);
+
+            if (d == 1)
+            {
+                date = strDayInINT + "st " + strMonth + ", " + strYear;
+            }
+            else if (d == 2)
+            {
+                date = strDayInINT + "nd " + strMonth + ", " + strYear;
+            }
+            else if (d == 3)
+            {
+                date = strDayInINT + "rd " + strMonth + ", " + strYear;
+            }
+            else
+            {
+                date = strDayInINT + "th " + strMonth + ", " + strYear;
+            }
+           
             bunifuLabel1.Text = strDay;
             bunifuLabel2.Text = date;
 
