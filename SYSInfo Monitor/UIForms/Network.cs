@@ -81,5 +81,10 @@ namespace SYSInfo_Monitor.UIForms
         {
 
         }
+
+        private void groupBox1_Enter_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
