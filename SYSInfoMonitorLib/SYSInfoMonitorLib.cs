@@ -40,11 +40,32 @@ namespace SYSInfoMonitorLib
             return sb.ToString();
         }
 
-        public List<KeyValuePair<string, string>> GetProcessorInfo()
+        public string[] GetProcessorInfo()
         {
             ManagementObjectSearcher myProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
+            string[] processorInfo = new string[13];
+            int i = 0;
+            foreach (ManagementObject obj in myProcessorObject.Get())
+            {
+                processorInfo[i] = obj["Name"].ToString(); i++;
+                processorInfo[i] = obj["DeviceID"].ToString(); i++;
+                processorInfo[i] = obj["Manufacturer"].ToString(); i++;
+                processorInfo[i] = (float.Parse(obj["CurrentClockSpeed"].ToString()) / 1000).ToString() + "Ghz"; i++;
+                processorInfo[i] = obj["Caption"].ToString(); i++;
+                processorInfo[i] = obj["NumberOfCores"].ToString(); i++;
+                processorInfo[i] = obj["NumberOfLogicalProcessors"].ToString(); i++;
+                processorInfo[i] = obj["VirtualizationFirmwareEnabled"].ToString(); i++;
+                processorInfo[i] = obj["Architecture"].ToString(); i++;
+                processorInfo[i] = obj["ProcessorType"].ToString(); i++;
+                processorInfo[i] = obj["Characteristics"].ToString(); i++;
+                processorInfo[i] = obj["AddressWidth"].ToString() + "Bit"; i++;
+            }
+            return processorInfo;
+        }
+        public List<KeyValuePair<string, string>>  GetProcessorInfoInKeyValuePair()
+        {
             var processorInfo = new List<KeyValuePair<string, string>>();
-
+            ManagementObjectSearcher myProcessorObject = new ManagementObjectSearcher("select * from Win32_Processor");
             foreach (ManagementObject obj in myProcessorObject.Get())
             {
                 processorInfo.Add(new KeyValuePair<string, string>("Name", $"{obj["Name"]}"));
@@ -63,7 +84,6 @@ namespace SYSInfoMonitorLib
             }
             return processorInfo;
         }
-
         public List<KeyValuePair<string, string>> GetGraphicsInfo()
         {
             var GraphicsInfo = new List<KeyValuePair<string, string>>();

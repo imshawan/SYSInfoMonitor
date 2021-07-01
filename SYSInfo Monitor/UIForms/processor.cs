@@ -9,39 +9,71 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SYSInfoMonitorLib;
+using OpenHardwareMonitor.Hardware;
 
 namespace SYSInfo_Monitor.UIForms
 {
     public partial class Processor : Form
     {
         SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
-        private List<KeyValuePair<string, string>> ProcessorInfo = new List<KeyValuePair<string, string>>();
+        private string[] ProcessorInfo = new string[13];
+        List<KeyValuePair<string, string>> KeyValuePairsToStr = new List<KeyValuePair<string, string>>();
         bool status = false;
 
         public Processor()
         {
             InitializeComponent();
         }
-        public void GetProcessorData(List<KeyValuePair<string, string>> Values)
+
+        
+        public List<KeyValuePair<string, string>> GetThermalsInfo()
         {
-            foreach (var val in Values)
+            List<KeyValuePair<string, string>> ThermalData = new List<KeyValuePair<string, string>>();
+
+            UpdateVisitor updateVisitor = new UpdateVisitor();
+            Computer computer = new Computer();
+            computer.Open();
+            computer.CPUEnabled = true;
+            
+            computer.Accept(updateVisitor);
+            for (int i = 0; i < computer.Hardware.Length; i++)
             {
-                if (val.Key.ToLower() == "name")
+                if (computer.Hardware[i].HardwareType == HardwareType.CPU)
                 {
-                    label1.Text = val.Value;
-                }
-                else
-                {
-                    bunifuDataGridView1.Rows.Add(" " + val.Key + ":", val.Value);
+                    for (int j = 0; j < computer.Hardware[i].Sensors.Length; j++)
+                    {
+                        if (computer.Hardware[i].Sensors[j].SensorType == SensorType.Temperature)
+                            ThermalData.Add(new KeyValuePair<string, string>(computer.Hardware[i].Sensors[j].Name, computer.Hardware[i].Sensors[j].Value.ToString()));
+                    }
                 }
             }
+            computer.Close();
+            return ThermalData;
+        }
+
+        public void GetProcessorData(string[] Values)
+        {
+            int i = 0;
+            label1.Text = Values[i]; i++;
+            label11.Text = Values[i]; i++;
+            label13.Text = Values[i]; i++;
+            label17.Text = Values[i]; i++;
+            label12.Text = Values[i]; i++;
+            label15.Text = Values[i]; i++;
+            label18.Text = Values[i]; i++;
+            label14.Text = Values[i]; i++;
+            label16.Text = Values[i]; i++;
+            label19.Text = Values[i]; i++;
+            label21.Text = Values[i]; i++;
+            label23.Text = Values[i]; i++;
         }
         private void processor_Load(object sender, EventArgs e)
         {
             timer1.Start();
+            timer2.Start();
         }
 
-        private void SaveToFile(string args)
+        private void SaveToFile(string args, string content)
         {
             string filePath = "";
 
@@ -76,17 +108,19 @@ namespace SYSInfo_Monitor.UIForms
             {
                 if (args == "csv")
                 {
-                    foreach (var vals in ProcessorInfo)
+                    foreach (var vals in KeyValuePairsToStr)
+                    {
+                        File.AppendAllText(filePath, $"{vals.Key}, {vals.Value}\n");
+                    }
+                    File.AppendAllText(filePath, "\nThermal Informtion:\n");
+                    foreach (var vals in GetThermalsInfo())
                     {
                         File.AppendAllText(filePath, $"{vals.Key}, {vals.Value}\n");
                     }
                 }
                 else if (args == "txt")
                 {
-                    foreach (var vals in ProcessorInfo)
-                    {
-                        File.AppendAllText(filePath, $"{vals.Key}: {vals.Value}\n");
-                    }
+                    File.AppendAllText(filePath, content);
                 }
 
                 MessageBox.Show("File Saved Successfully!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -94,17 +128,20 @@ namespace SYSInfo_Monitor.UIForms
         }
         private void copyInformationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(GetInfo.StringBuilderFunc(ProcessorInfo));
+            var temp = "\nThermal Information: \n" + GetInfo.StringBuilderFunc(GetThermalsInfo());
+            Clipboard.SetText(GetInfo.StringBuilderFunc(KeyValuePairsToStr) + temp);
         }
 
         private void saveToTextFiletxtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveToFile("txt");
+            var temp = GetInfo.StringBuilderFunc(KeyValuePairsToStr) +
+                "\nThermal Information: \n" + GetInfo.StringBuilderFunc(GetThermalsInfo());
+            SaveToFile("txt", temp);
         }
 
         private void saveDataToCSVToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveToFile("csv");
+            SaveToFile("csv", string.Empty);
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -118,9 +155,51 @@ namespace SYSInfo_Monitor.UIForms
             {
                 ProcessorInfo = GetInfo.GetProcessorInfo();
                 GetProcessorData(ProcessorInfo);
+                KeyValuePairsToStr = GetInfo.GetProcessorInfoInKeyValuePair();
                 status = true;
             }
             timer1.Stop();
         }
+
+        private void bunifuDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            var temp = GetThermalsInfo();
+            bunifuDataGridView1.Rows.Clear();
+            foreach (var vals in temp)
+            {
+                if (vals.Key.ToLower().Contains("package"))
+                {
+                    label25.Text = vals.Value + "°C";
+                }
+                else
+                {
+                    bunifuDataGridView1.Rows.Add(vals.Key + ":", vals.Value + "°C");
+                }
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            
+        }
+    }
+    public class UpdateVisitor : IVisitor
+    {
+        public void VisitComputer(IComputer computer)
+        {
+            computer.Traverse(this);
+        }
+        public void VisitHardware(IHardware hardware)
+        {
+            hardware.Update();
+            foreach (IHardware subHardware in hardware.SubHardware) subHardware.Accept(this);
+        }
+        public void VisitSensor(ISensor sensor) { }
+        public void VisitParameter(IParameter parameter) { }
     }
 }
