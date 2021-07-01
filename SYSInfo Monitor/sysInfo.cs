@@ -118,70 +118,9 @@ namespace SYSInfo_Monitor
             LoadInitialItems();
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSeparator1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bunifuImageButton3_Click(object sender, EventArgs e)
-        {
-            //GITHUB PAGE
-            Process.Start("https://github.com/imshawan/SYSInfoMonitor");
-        }
-
-        private void bunifuButton5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bunifuLabel2_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void bunifuImageButton4_Click(object sender, EventArgs e)
-        {
-            SYSInfo_Monitor.UIForms.Diagnostics Diagnostic = new SYSInfo_Monitor.UIForms.Diagnostics();
-            Diagnostic.ShowDialog(this);
-        }
-        private void bunifuImageButton1_Click(object sender, EventArgs e)
-        {
-            SYSInfo_Monitor.UIForms.Battery Battery = new SYSInfo_Monitor.UIForms.Battery();
-            Battery.ShowDialog(this);
-        }
-
-        private void bunifuImageButton2_Click(object sender, EventArgs e)
-        {
-            //NETWORK INFO
-            SYSInfo_Monitor.UIForms.Network Net = new SYSInfo_Monitor.UIForms.Network();
-            Net.ShowDialog(this);
-        }
-
-        private void bunifuImageButton5_Click(object sender, EventArgs e)
-        {
-            // Processor Information
-            SYSInfo_Monitor.UIForms.Processor ProcessorIn = new SYSInfo_Monitor.UIForms.Processor();
-            ProcessorIn.ShowDialog(this);
         }
 
         private void bunifuGradientPanel1_Paint(object sender, PaintEventArgs e)
@@ -189,46 +128,78 @@ namespace SYSInfo_Monitor
 
         }
 
-        private void bunifuImageButton6_Click(object sender, EventArgs e)
+        private void bunifuImageButton5_Click_1(object sender, EventArgs e)
+        {
+            // Processor Information
+            SYSInfo_Monitor.UIForms.Processor ProcessorIn = new SYSInfo_Monitor.UIForms.Processor();
+            ProcessorIn.ShowDialog(this);
+        }
+
+        private void bunifuImageButton6_Click_1(object sender, EventArgs e)
         {
             SYSInfo_Monitor.UIForms.Graphics Graphic = new SYSInfo_Monitor.UIForms.Graphics();
             Graphic.ShowDialog(this);
         }
 
-        private void bunifuImageButton7_Click(object sender, EventArgs e)
+        private void bunifuImageButton7_Click_1(object sender, EventArgs e)
         {
             SYSInfo_Monitor.UIForms.Storage Storage = new SYSInfo_Monitor.UIForms.Storage();
             Storage.ShowDialog(this);
         }
 
-        private void bunifuImageButton9_Click(object sender, EventArgs e)
+        private void bunifuImageButton9_Click_1(object sender, EventArgs e)
         {
             SYSInfo_Monitor.UIForms.OS OS = new SYSInfo_Monitor.UIForms.OS();
             OS.ShowDialog(this);
         }
 
-        private void bunifuImageButton11_Click(object sender, EventArgs e)
+        private void bunifuImageButton11_Click_1(object sender, EventArgs e)
         {
             SYSInfo_Monitor.UIForms.NICs Network = new SYSInfo_Monitor.UIForms.NICs();
             Network.ShowDialog(this);
         }
 
-        private void bunifuImageButton12_Click(object sender, EventArgs e)
+        private void bunifuImageButton12_Click_1(object sender, EventArgs e)
         {
             SYSInfo_Monitor.UIForms.Audio Audio = new SYSInfo_Monitor.UIForms.Audio();
             Audio.ShowDialog(this);
         }
 
-        private void bunifuImageButton13_Click(object sender, EventArgs e)
+        private void bunifuImageButton8_Click_1(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.MoreItems More = new SYSInfo_Monitor.UIForms.MoreItems();
+            More.ShowDialog(this);
+        }
+
+        private void bunifuImageButton13_Click_1(object sender, EventArgs e)
         {
             SYSInfo_Monitor.UIForms.About About = new SYSInfo_Monitor.UIForms.About();
             About.ShowDialog(this);
         }
 
-        private void bunifuImageButton8_Click(object sender, EventArgs e)
+        private void bunifuImageButton1_Click_1(object sender, EventArgs e)
         {
-            SYSInfo_Monitor.UIForms.MoreItems More = new SYSInfo_Monitor.UIForms.MoreItems();
-            More.ShowDialog(this);
+            SYSInfo_Monitor.UIForms.Battery Battery = new SYSInfo_Monitor.UIForms.Battery();
+            Battery.ShowDialog(this);
+        }
+
+        private void bunifuImageButton3_Click_1(object sender, EventArgs e)
+        {
+            //GITHUB PAGE
+            Process.Start("https://github.com/imshawan/SYSInfoMonitor");
+        }
+
+        private void bunifuImageButton2_Click_1(object sender, EventArgs e)
+        {
+            //NETWORK INFO
+            SYSInfo_Monitor.UIForms.Network Net = new SYSInfo_Monitor.UIForms.Network();
+            Net.ShowDialog(this);
+        }
+
+        private void bunifuImageButton4_Click_1(object sender, EventArgs e)
+        {
+            SYSInfo_Monitor.UIForms.Diagnostics Diagnostic = new SYSInfo_Monitor.UIForms.Diagnostics();
+            Diagnostic.ShowDialog(this);
         }
     }
 }
