@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime;
 using SYSInfoMonitorLib;
+using System.Reflection;
 
 namespace SYSInfo_Monitor
 {
@@ -73,6 +74,8 @@ namespace SYSInfo_Monitor
         {
             // Get System name
             label5.Text = Environment.MachineName;
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            this.Text = $"SysInfo Monitor v{version.ToString()}";
 
             // Get DATE, TIME and DAY
             const string year = "yyyy";
