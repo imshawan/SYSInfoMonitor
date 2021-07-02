@@ -35,7 +35,6 @@ namespace SYSInfo_Monitor.UIForms
             this.bunifuImageButton1 = new Bunifu.Framework.UI.BunifuImageButton();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -48,6 +47,7 @@ namespace SYSInfo_Monitor.UIForms
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -102,11 +102,6 @@ namespace SYSInfo_Monitor.UIForms
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 30;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // progressBar1
             // 
@@ -257,6 +252,11 @@ namespace SYSInfo_Monitor.UIForms
             this.label3.Size = new System.Drawing.Size(106, 20);
             this.label3.TabIndex = 18;
             this.label3.Text = "Power Source:";
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 10;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Battery
             // 
