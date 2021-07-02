@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SYSInfoMonitorLib;
 
 namespace SYSInfo_Monitor.UIForms
 {
@@ -19,7 +20,7 @@ namespace SYSInfo_Monitor.UIForms
         }
 
         bool status = false;
-        SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
+        GetSYSInfo GetInfo = new GetSYSInfo();
         private List<KeyValuePair<string, string>> GraphicsInfo = new List<KeyValuePair<string, string>>();
         bool findFirst = false;
 

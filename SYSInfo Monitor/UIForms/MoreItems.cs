@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SYSInfoMonitorLib;
 
 namespace SYSInfo_Monitor.UIForms
 {
@@ -18,7 +19,7 @@ namespace SYSInfo_Monitor.UIForms
         }
 
         bool status = false;
-        SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
+        GetSYSInfo GetInfo = new GetSYSInfo();
         private List<KeyValuePair<string, string>> PrintersInfo = new List<KeyValuePair<string, string>>();
         private List<KeyValuePair<string, string>> BaseBoard = new List<KeyValuePair<string, string>>();
         private List<KeyValuePair<string, string>> BIOS = new List<KeyValuePair<string, string>>();
@@ -63,6 +64,11 @@ namespace SYSInfo_Monitor.UIForms
                 status = true;
             }
             timer1.Stop();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

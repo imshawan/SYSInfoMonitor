@@ -23,7 +23,7 @@ namespace SYSInfo_Monitor.UIForms
             InitializeComponent();
         }
 
-        SYSInfoMonitorLib.WinAPI WinAPI = new SYSInfoMonitorLib.WinAPI();
+        WinAPI WinAPI = new WinAPI();
 
         private void Diagnostics_Load(object sender, EventArgs e)
         {

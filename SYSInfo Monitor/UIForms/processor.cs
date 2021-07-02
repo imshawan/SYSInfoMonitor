@@ -15,7 +15,7 @@ namespace SYSInfo_Monitor.UIForms
 {
     public partial class Processor : Form
     {
-        SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
+        GetSYSInfo GetInfo = new GetSYSInfo();
         private string[] ProcessorInfo = new string[13];
         List<KeyValuePair<string, string>> KeyValuePairsToStr = new List<KeyValuePair<string, string>>();
         bool status = false;

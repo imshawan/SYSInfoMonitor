@@ -13,8 +13,8 @@ namespace SYSInfo_Monitor.UIForms
 {
     public partial class Network : Form
     {
-        SYSInfoMonitorLib.GetSYSInfo GetInfo = new SYSInfoMonitorLib.GetSYSInfo();
-        SYSInfoMonitorLib.WinAPI WinAPI = new SYSInfoMonitorLib.WinAPI();
+        GetSYSInfo GetInfo = new GetSYSInfo();
+        WinAPI WinAPI = new WinAPI();
 
         public Network()
         {

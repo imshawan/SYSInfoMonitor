@@ -18,7 +18,7 @@ namespace SYSInfo_Monitor.UIForms
         {
             InitializeComponent();
         }
-        SYSInfoMonitorLib.WinAPI WinAPI = new SYSInfoMonitorLib.WinAPI();
+        WinAPI WinAPI = new WinAPI();
         private void UpdateBatteryElements()
         {
             PowerStatus pwr = SystemInformation.PowerStatus;
