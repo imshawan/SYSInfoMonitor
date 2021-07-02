@@ -2,6 +2,10 @@
 
 **SYSInfoMonitor** is an open-source System Information Monitor with modern user interface that can be used to monitor hardware and software information of a PC. This software can monitor the temperature sensors, clock speeds, load, graphics, memory, printers, baseboard and more of your computer.
 
+<p>
+	<img src="https://github.com/imshawan/SYSInfoMonitor/blob/main/src/sysinfo.jpg" width="500px">
+</p>
+
 ## Getting System Information out using the software?
 
 The SYSInfoMonitor can read information from devices such as:
