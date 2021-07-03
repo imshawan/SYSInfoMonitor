@@ -47,9 +47,9 @@ namespace SYSInfo_Monitor
             {
                 MessageBox.Show("Couldn't start the Perfomance Counter, Trying to Fix...", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 Process p = new Process();
-                p.StartInfo.FileName = "C:\\Windows\\system32\\cmd.exe";
-                p.StartInfo.WorkingDirectory = Environment.CurrentDirectory;
-                p.StartInfo.Arguments = "C:\\windows\\SysWOW64> lodctr /r";
+                p.StartInfo.FileName = Environment.ExpandEnvironmentVariables("%SystemRoot%") + @"\System32\cmd.exe";
+                p.StartInfo.WorkingDirectory = Environment.ExpandEnvironmentVariables("%SystemRoot%") + @"\SysWOW64";
+                p.StartInfo.Arguments = "lodctr /r";
                 p.Start();
 
                 try

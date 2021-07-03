@@ -57,7 +57,14 @@ namespace SYSInfoMonitorLib
                 processorInfo[i] = obj["VirtualizationFirmwareEnabled"].ToString(); i++;
                 processorInfo[i] = obj["Architecture"].ToString(); i++;
                 processorInfo[i] = obj["ProcessorType"].ToString(); i++;
-                processorInfo[i] = obj["Characteristics"].ToString(); i++;
+                try
+                {
+                    processorInfo[i] = obj["Characteristics"].ToString(); i++;
+                }
+                catch (Exception)
+                {
+                    processorInfo[i] = "Not Found"; i++;
+                }
                 processorInfo[i] = obj["AddressWidth"].ToString() + "Bit"; i++;
             }
             return processorInfo;
@@ -79,7 +86,14 @@ namespace SYSInfoMonitorLib
                 processorInfo.Add(new KeyValuePair<string, string>("Architecture", $"{obj["Architecture"]}"));
                 processorInfo.Add(new KeyValuePair<string, string>("Family", $"{obj["Family"]}"));
                 processorInfo.Add(new KeyValuePair<string, string>("ProcessorType", $"{obj["ProcessorType"]}"));
-                processorInfo.Add(new KeyValuePair<string, string>("Characteristics", $"{obj["Characteristics"]}"));
+                try
+                {
+                    processorInfo.Add(new KeyValuePair<string, string>("Characteristics", $"{obj["Characteristics"]}"));
+                }
+                catch (Exception)
+                {
+                    processorInfo.Add(new KeyValuePair<string, string>("Characteristics", "Not Found"));
+                }
                 processorInfo.Add(new KeyValuePair<string, string>("AddressWidth", $"{obj["AddressWidth"]}bit"));
             }
             return processorInfo;
