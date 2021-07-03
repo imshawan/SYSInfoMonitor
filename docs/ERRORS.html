@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Causes of Error</title>
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+<div id="page">
+	<div id="content">
+        <h1>Some Known Errors</h1>
+        <p><h3 class="dt">1. Problems related to PerformanceCounter</h3>
+            <p>
+                An error may occur while you click the System Diagnostics button present below the <strong>System Name</strong>, along side the <strong>Battery and Network buttons</strong>. 
+                This is due to the PerformanceCounter and can occur if the PerformanceCounter is not built in your PC.
+                Therefore you need to rebuild performance counter setting from system backup store.
+            </p>
+            Here's how to do it...
+            <ul>
+            <li>Go to Start, type”cmd”.</li>
+
+            <li>Right-click on cmd.exe and choose <strong>‘Run as administrator’</strong></li>
+
+            <li>then you instead need to run <br>
+
+            <strong>C:\windows\SysWOW64> lodctr /r</li></strong>
+            <li> After which you should get </li>
+            <strong>Info: Successfully rebuilt performance counter setting from system backup store</strong> <br>
+
+            <strong>Note: This has to be done as administrator.</li></strong>
+            </ul>
+        </p>
+	</div>
+</div>
+</body>
+</html>
