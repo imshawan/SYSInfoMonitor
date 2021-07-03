@@ -119,7 +119,7 @@ namespace SYSInfo_Monitor
             this.panel11.Controls.Add(this.bunifuImageButton8);
             this.panel11.Controls.Add(this.bunifuButton7);
             this.panel11.Location = new System.Drawing.Point(619, 272);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(120, 120);
             this.panel11.TabIndex = 25;
@@ -145,7 +145,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton8.ImageZoomSize = new System.Drawing.Size(62, 62);
             this.bunifuImageButton8.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton8.InitialImage")));
             this.bunifuImageButton8.Location = new System.Drawing.Point(29, 14);
-            this.bunifuImageButton8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton8.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton8.Name = "bunifuImageButton8";
             this.bunifuImageButton8.Rotation = 0;
             this.bunifuImageButton8.ShowActiveImage = true;
@@ -256,7 +256,7 @@ namespace SYSInfo_Monitor
             this.panel7.Controls.Add(this.bunifuImageButton7);
             this.panel7.Controls.Add(this.bunifuButton3);
             this.panel7.Location = new System.Drawing.Point(433, 150);
-            this.panel7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel7.Margin = new System.Windows.Forms.Padding(2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(160, 160);
             this.panel7.TabIndex = 25;
@@ -282,7 +282,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton7.ImageZoomSize = new System.Drawing.Size(77, 77);
             this.bunifuImageButton7.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton7.InitialImage")));
             this.bunifuImageButton7.Location = new System.Drawing.Point(41, 24);
-            this.bunifuImageButton7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton7.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton7.Name = "bunifuImageButton7";
             this.bunifuImageButton7.Rotation = 0;
             this.bunifuImageButton7.ShowActiveImage = true;
@@ -393,7 +393,7 @@ namespace SYSInfo_Monitor
             this.panel6.Controls.Add(this.bunifuImageButton6);
             this.panel6.Controls.Add(this.bunifuButton2);
             this.panel6.Location = new System.Drawing.Point(236, 150);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(160, 160);
             this.panel6.TabIndex = 25;
@@ -419,7 +419,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton6.ImageZoomSize = new System.Drawing.Size(77, 77);
             this.bunifuImageButton6.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton6.InitialImage")));
             this.bunifuImageButton6.Location = new System.Drawing.Point(41, 24);
-            this.bunifuImageButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton6.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton6.Name = "bunifuImageButton6";
             this.bunifuImageButton6.Rotation = 0;
             this.bunifuImageButton6.ShowActiveImage = true;
@@ -530,7 +530,7 @@ namespace SYSInfo_Monitor
             this.panel10.Controls.Add(this.bunifuImageButton12);
             this.panel10.Controls.Add(this.bunifuButton6);
             this.panel10.Location = new System.Drawing.Point(433, 347);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(160, 160);
             this.panel10.TabIndex = 25;
@@ -557,7 +557,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton12.ImageZoomSize = new System.Drawing.Size(77, 77);
             this.bunifuImageButton12.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton12.InitialImage")));
             this.bunifuImageButton12.Location = new System.Drawing.Point(42, 23);
-            this.bunifuImageButton12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton12.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton12.Name = "bunifuImageButton12";
             this.bunifuImageButton12.Rotation = 0;
             this.bunifuImageButton12.ShowActiveImage = true;
@@ -668,7 +668,7 @@ namespace SYSInfo_Monitor
             this.panel9.Controls.Add(this.bunifuImageButton11);
             this.panel9.Controls.Add(this.bunifuButton5);
             this.panel9.Location = new System.Drawing.Point(236, 347);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(160, 160);
             this.panel9.TabIndex = 25;
@@ -695,7 +695,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton11.ImageZoomSize = new System.Drawing.Size(77, 77);
             this.bunifuImageButton11.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton11.InitialImage")));
             this.bunifuImageButton11.Location = new System.Drawing.Point(42, 23);
-            this.bunifuImageButton11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton11.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton11.Name = "bunifuImageButton11";
             this.bunifuImageButton11.Rotation = 0;
             this.bunifuImageButton11.ShowActiveImage = true;
@@ -806,7 +806,7 @@ namespace SYSInfo_Monitor
             this.panel8.Controls.Add(this.bunifuImageButton9);
             this.panel8.Controls.Add(this.bunifuButton4);
             this.panel8.Location = new System.Drawing.Point(38, 347);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(160, 160);
             this.panel8.TabIndex = 25;
@@ -833,7 +833,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton9.ImageZoomSize = new System.Drawing.Size(77, 77);
             this.bunifuImageButton9.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton9.InitialImage")));
             this.bunifuImageButton9.Location = new System.Drawing.Point(41, 23);
-            this.bunifuImageButton9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton9.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton9.Name = "bunifuImageButton9";
             this.bunifuImageButton9.Rotation = 0;
             this.bunifuImageButton9.ShowActiveImage = true;
@@ -944,7 +944,7 @@ namespace SYSInfo_Monitor
             this.panel5.Controls.Add(this.bunifuImageButton5);
             this.panel5.Controls.Add(this.bunifuButton1);
             this.panel5.Location = new System.Drawing.Point(38, 150);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(160, 160);
             this.panel5.TabIndex = 25;
@@ -970,7 +970,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton5.ImageZoomSize = new System.Drawing.Size(77, 77);
             this.bunifuImageButton5.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton5.InitialImage")));
             this.bunifuImageButton5.Location = new System.Drawing.Point(41, 24);
-            this.bunifuImageButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton5.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton5.Name = "bunifuImageButton5";
             this.bunifuImageButton5.Rotation = 0;
             this.bunifuImageButton5.ShowActiveImage = true;
@@ -1151,7 +1151,7 @@ namespace SYSInfo_Monitor
             this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.bunifuPictureBox1);
             this.panel1.Location = new System.Drawing.Point(-1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(249, 546);
             this.panel1.TabIndex = 22;
@@ -1211,7 +1211,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton13.ImageZoomSize = new System.Drawing.Size(30, 30);
             this.bunifuImageButton13.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton13.InitialImage")));
             this.bunifuImageButton13.Location = new System.Drawing.Point(183, 8);
-            this.bunifuImageButton13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton13.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton13.Name = "bunifuImageButton13";
             this.bunifuImageButton13.Rotation = 0;
             this.bunifuImageButton13.ShowActiveImage = true;
@@ -1247,7 +1247,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton4.ImageZoomSize = new System.Drawing.Size(30, 30);
             this.bunifuImageButton4.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.InitialImage")));
             this.bunifuImageButton4.Location = new System.Drawing.Point(90, 8);
-            this.bunifuImageButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton4.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton4.Name = "bunifuImageButton4";
             this.bunifuImageButton4.Rotation = 0;
             this.bunifuImageButton4.ShowActiveImage = true;
@@ -1283,7 +1283,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton2.ImageZoomSize = new System.Drawing.Size(30, 30);
             this.bunifuImageButton2.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton2.InitialImage")));
             this.bunifuImageButton2.Location = new System.Drawing.Point(50, 8);
-            this.bunifuImageButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton2.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton2.Name = "bunifuImageButton2";
             this.bunifuImageButton2.Rotation = 0;
             this.bunifuImageButton2.ShowActiveImage = true;
@@ -1319,7 +1319,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(30, 30);
             this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
             this.bunifuImageButton1.Location = new System.Drawing.Point(10, 8);
-            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton1.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Rotation = 0;
             this.bunifuImageButton1.ShowActiveImage = true;
@@ -1355,7 +1355,7 @@ namespace SYSInfo_Monitor
             this.bunifuImageButton3.ImageZoomSize = new System.Drawing.Size(30, 30);
             this.bunifuImageButton3.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.InitialImage")));
             this.bunifuImageButton3.Location = new System.Drawing.Point(145, 8);
-            this.bunifuImageButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bunifuImageButton3.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuImageButton3.Name = "bunifuImageButton3";
             this.bunifuImageButton3.Rotation = 0;
             this.bunifuImageButton3.ShowActiveImage = true;

@@ -25,8 +25,8 @@ The SYSInfoMonitor can read information from devices such as:
 
 | Name | .NET Description                    |
 | ------------- | ------------------------------ |
-| **SYSInfoMonitor:** The main Windows Forms based application that presents all data in a graphical interface     | **.NET Framework 4.5.2**     |
-| **SYSInfoMonitorLib:**  The Library which contains all features required in the main application   | **.NET Framework 4.5.2**     |
+| **SYSInfoMonitor:** The main Windows Forms based application that presents all data in a graphical interface     | **.NET Framework 4.5**     |
+| **SYSInfoMonitorLib:**  The Library which contains all features required in the main application   | **.NET Framework 4.5**     |
 
 ### External Frameworks and Library used for designing and extracting information:
 | Framework | Uses                    |
