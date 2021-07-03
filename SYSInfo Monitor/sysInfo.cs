@@ -13,6 +13,7 @@ using System.IO;
 using System.Runtime;
 using SYSInfoMonitorLib;
 using System.Reflection;
+using System.Drawing.Drawing2D;
 
 namespace SYSInfo_Monitor
 {
@@ -32,9 +33,29 @@ namespace SYSInfo_Monitor
         private List<KeyValuePair<string, string>> AudioDevices = new List<KeyValuePair<string, string>>();
         private List<KeyValuePair<string, string>> Printers = new List<KeyValuePair<string, string>>();
 
-        ///
-        /// Handling the window messages
-        ///
+        public sysInfo()
+        {
+            InitializeComponent();
+        }
+
+        [DllImport("shell32.dll", EntryPoint = "#261",
+               CharSet = CharSet.Unicode, PreserveSig = false)]
+        public static extern void GetUserTilePath(
+        string username,
+        UInt32 whatever, // 0x80000000
+        StringBuilder picpath, int maxLength);
+
+        public static string GetUserTilePath(string username)
+        {   // username: use null for current user
+            var sb = new StringBuilder(1000);
+            GetUserTilePath(username, 0x80000000, sb, sb.Capacity);
+            return sb.ToString();
+        }
+
+        public static Image GetUserTile(string username)
+        {
+            return Image.FromFile(GetUserTilePath(username));
+        }
 
         public bool GetperfomanceCounterStatus()
         {
@@ -61,19 +82,16 @@ namespace SYSInfo_Monitor
                 {
                     return false;
                 }
-                
-            }
-        }
 
-        public sysInfo()
-        {
-            InitializeComponent();
+            }
         }
 
         private void LoadInitialItems()
         {
             // Get System name
             label5.Text = Environment.MachineName;
+            bunifuPictureBox1.Image = GetUserTile(Environment.UserName);
+
             Version version = Assembly.GetExecutingAssembly().GetName().Version;
             this.Text = $"SysInfo Monitor v{version.ToString()}";
 
@@ -115,7 +133,7 @@ namespace SYSInfo_Monitor
                 MessageBox.Show("Cound not fix Perfomance Counter, some functions may fail...", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-       
+
         private void sysInfo_Load(object sender, EventArgs e)
         {
             LoadInitialItems();
@@ -203,6 +221,11 @@ namespace SYSInfo_Monitor
         {
             SYSInfo_Monitor.UIForms.Diagnostics Diagnostic = new SYSInfo_Monitor.UIForms.Diagnostics();
             Diagnostic.ShowDialog(this);
+        }
+
+        private void bunifuImageButton10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
