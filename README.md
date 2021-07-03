@@ -1,3 +1,7 @@
+[![SYSInfoMonitor: Passing](https://img.shields.io/badge/SYSInfoMonitor-Passing-green)](https://github.com/imshawan/SYSInfoMonitor)
+[![GitHub license](https://img.shields.io/github/license/imshawan/SYSInfoMonitor)](https://github.com/imshawan/SYSInfoMonitor/blob/main/LICENSE)
+![Release: 1.3.2](https://img.shields.io/badge/Release-1.3.2-informational)
+
 # SYSInfoMonitor
 
 **SYSInfoMonitor** is an open-source System Information Monitor with modern user interface that can be used to monitor hardware and software information of a PC. This software can monitor the temperature sensors, clock speeds, load, graphics, memory, printers, baseboard and more of your computer.
@@ -37,7 +41,7 @@ The SYSInfoMonitor can read information from devices such as:
 ## Using the software
 <ol>
 <li><b>Download the ready to use latest builds</b></li>
-If you're signed in to GitHub, you can also download all the latest builds and binaries here.
+If you're signed in to GitHub, you can also download all the latest builds and binaries <a href="https://github.com/imshawan/SYSInfoMonitor/releases/tag/SYSInfo">here</a>.
 <li><b>Compiling the application locally on your computer</b>
 <ul>
 <li>Clone the git repository of SYSInfoMonitor<br>
@@ -51,6 +55,9 @@ If you're signed in to GitHub, you can also download all the latest builds and b
 
 >  **Note** You need to have Bunifu Framework libraries and OpenHardwareMonitorLib.dll present in your computer to compile the app locally.
   
+## System Requirements
+.NET Framework 4.5
+
 ## Important links
 
 -   [EULA](https://github.com/imshawan/SYSInfoMonitor/blob/main/docs/EULA.md)
