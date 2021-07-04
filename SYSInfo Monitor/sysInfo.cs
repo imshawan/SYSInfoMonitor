@@ -5,21 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System.Management;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using System.Diagnostics;
-using System.IO;
-using System.Runtime;
 using SYSInfoMonitorLib;
 using System.Reflection;
-using System.Drawing.Drawing2D;
 
 namespace SYSInfo_Monitor
 {
     public partial class sysInfo : Form
     {
-        SYSInfoMonitorLib.GetSYSInfo SysInfo = new SYSInfoMonitorLib.GetSYSInfo();
+        GetSYSInfo SysInfo = new GetSYSInfo();
 
         DateTime now = DateTime.Now;
 
