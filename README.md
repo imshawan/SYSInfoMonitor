@@ -41,7 +41,7 @@ The SYSInfoMonitor can read information from devices such as:
 ## Using the software
 <ol>
 <li><b>Download the ready to use latest builds</b></li>
-If you're signed in to GitHub, you can also download all the latest builds and binaries <a href="https://github.com/imshawan/SYSInfoMonitor/releases/tag/SYSInfo">here</a>.
+If you're signed in to GitHub, you can also download all the latest builds and binaries <a href="https://github.com/imshawan/SYSInfoMonitor/releases">here</a>.
 <li><b>Compiling the application locally on your computer</b>
 <ul>
 <li>Clone the git repository of SYSInfoMonitor<br>
