@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SYSInfoMonitorLib;
 using OpenHardwareMonitor.Hardware;
+using System.Diagnostics;
 
 namespace SYSInfo_Monitor.UIForms
 {
@@ -25,7 +26,23 @@ namespace SYSInfo_Monitor.UIForms
             InitializeComponent();
         }
 
-        
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (new StackTrace().GetFrames().Any(x => x.GetMethod().Name == "Close"))
+            {
+                // Closed by calling Close()
+                timer1.Stop();
+                timer2.Stop();
+            }
+
+            else
+            {
+                // Closed by X or Alt+F4"
+                timer1.Stop();
+                timer2.Stop();
+            }
+        }
+
         public List<KeyValuePair<string, string>> GetThermalsInfo()
         {
             List<KeyValuePair<string, string>> ThermalData = new List<KeyValuePair<string, string>>();
