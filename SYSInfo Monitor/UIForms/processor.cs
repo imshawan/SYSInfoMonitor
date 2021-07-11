@@ -42,13 +42,13 @@ namespace SYSInfo_Monitor.UIForms
                 timer2.Stop();
             }
         }
-
+        UpdateVisitor updateVisitor = new UpdateVisitor();
+        Computer computer = new Computer();
         public List<KeyValuePair<string, string>> GetThermalsInfo()
         {
             List<KeyValuePair<string, string>> ThermalData = new List<KeyValuePair<string, string>>();
 
-            UpdateVisitor updateVisitor = new UpdateVisitor();
-            Computer computer = new Computer();
+            
             computer.Open();
             computer.CPUEnabled = true;
             
@@ -64,7 +64,7 @@ namespace SYSInfo_Monitor.UIForms
                     }
                 }
             }
-            computer.Close();
+            //computer.Close();
             return ThermalData;
         }
 
