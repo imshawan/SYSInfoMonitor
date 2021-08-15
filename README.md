@@ -1,6 +1,6 @@
 [![SYSInfoMonitor: Passing](https://img.shields.io/badge/SYSInfoMonitor-Passing-green)](https://github.com/imshawan/SYSInfoMonitor)
 [![GitHub license](https://img.shields.io/github/license/imshawan/SYSInfoMonitor)](https://github.com/imshawan/SYSInfoMonitor/blob/main/LICENSE)
-![Release: 1.3.2](https://img.shields.io/badge/Release-1.3.2-informational)
+![Release: 1.3.3](https://img.shields.io/badge/Release-1.3.3-informational)
 
 # SYSInfoMonitor
 
