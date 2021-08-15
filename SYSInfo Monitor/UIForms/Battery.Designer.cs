@@ -155,7 +155,7 @@ namespace SYSInfo_Monitor.UIForms
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 93);
             this.label6.TabIndex = 19;
-            this.label6.Text = "100%";
+            this.label6.Text = "...?";
             // 
             // label4
             // 

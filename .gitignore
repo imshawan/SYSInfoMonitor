@@ -1,6 +1,8 @@
 packages
 release
 
+SYSInfo Monitor/packages.config
+
 SYSInfo Monitor/bin
 SYSInfo Monitor/obj
 SYSInfo Monitor/SYSInfo Monitor/publish

@@ -96,6 +96,7 @@ namespace SYSInfo_Monitor
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(37)))), ((int)(((byte)(41)))));
             this.groupBox2.Controls.Add(this.panel11);
             this.groupBox2.Controls.Add(this.panel7);
             this.groupBox2.Controls.Add(this.panel6);
@@ -1159,7 +1160,7 @@ namespace SYSInfo_Monitor
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DimGray;
-            this.panel4.Location = new System.Drawing.Point(145, 410);
+            this.panel4.Location = new System.Drawing.Point(145, 413);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(4, 30);
