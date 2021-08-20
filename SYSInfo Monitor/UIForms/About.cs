@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -46,6 +47,12 @@ namespace SYSInfo_Monitor.UIForms
         private void button2_Click(object sender, EventArgs e)
         {
             Process.Start("https://github.com/imshawan/SYSInfoMonitor/blob/main/docs/gpl-3.0-LICENSE.md");
+        }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            label2.Text = $"Version {version.ToString()}";
         }
     }
 }
