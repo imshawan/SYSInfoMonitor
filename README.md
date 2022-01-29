@@ -45,7 +45,7 @@ If you're signed in to GitHub, you can also download all the latest builds and b
 <li><b>Compiling the application locally on your computer</b>
 <ul>
 <li>Clone the git repository of SYSInfoMonitor<br>
-	 `git clone https://github.com/imshawan/SYSInfoMonitor.git`
+	 https://github.com/imshawan/SYSInfoMonitor.git
  </li>
 <li>Add the C# reference the libraries in your local computer</li>
 <li>Now you're ready to compile.</li>
